@@ -9,6 +9,17 @@ const Navbar = () => {
     const handleClick = () => {
         setActive(!active)
     }
+
+    // Redux refactor attempt 
+    //--------
+    // function reducer(state, action) {
+    //     switch (action.type) {
+    //         case "toggle-active":
+    //             return { active: !state};
+    //         default:
+    //             return state 
+    //     }
+    // }
     
     return (
         <nav className="NavbarItems">

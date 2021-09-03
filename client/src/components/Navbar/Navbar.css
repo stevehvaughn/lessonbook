@@ -133,7 +133,7 @@
 		transition: 250ms;
 	}
 
-	Button {
+	#navbar-main-signup {
 		display: none;
 	}
 }

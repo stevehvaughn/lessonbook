@@ -6,4 +6,8 @@ class User < ApplicationRecord
     
     has_many :lessons
     has_many :practice_logs, foreign_key: "student_id"
+
+    validates :username, uniqueness: true, presence: true
+    validates :email, uniqueness: true, presence: true
+    validates :password, presence: true
 end
