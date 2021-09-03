@@ -1,10 +1,11 @@
 import Navbar from "./components/Navbar/Navbar";
+import Login from "./components/Login/Login";
 
 const App = () => {
   return (
     <div>
       <Navbar />
-      <h1>YO DAWG</h1>
+      <Login />
     </div>
   );
 }
