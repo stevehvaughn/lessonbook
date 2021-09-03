@@ -1,25 +1,17 @@
-import { useState } from 'react'
 import { MenuItems } from "./MenuItems"
 import { Button } from '../Button'
+import { toggleActive } from "../../redux/actions/navbarActions"
+import { useDispatch, useSelector } from 'react-redux'
 import './Navbar.css'
 
-const Navbar = () => {
-    const [active, setActive] = useState(false)
+const Navbar = () => {    
+    const dispatch = useDispatch()
 
-    const handleClick = () => {
-        setActive(!active)
+    function handleClick() {
+       dispatch(toggleActive())
     }
-
-    // Redux refactor attempt 
-    //--------
-    // function reducer(state, action) {
-    //     switch (action.type) {
-    //         case "toggle-active":
-    //             return { active: !state};
-    //         default:
-    //             return state 
-    //     }
-    // }
+    
+    const active = useSelector(state => state.active)
     
     return (
         <nav className="NavbarItems">
