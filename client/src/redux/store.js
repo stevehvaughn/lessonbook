@@ -1,5 +1,5 @@
 import { createStore, compose } from 'redux'
-import { appReducer } from './reducers/appReducer'
+import { navbarReducer } from './reducers/navbarReducer'
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-export const store = createStore(appReducer, composeEnhancers());
+export const store = createStore(navbarReducer, composeEnhancers());
