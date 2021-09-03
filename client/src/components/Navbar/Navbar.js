@@ -11,7 +11,7 @@ const Navbar = () => {
        dispatch(toggleActive())
     }
     
-    const active = useSelector(state => state.active)
+    const active = useSelector(state => state.navbar.active)
     
     return (
         <nav className="NavbarItems">

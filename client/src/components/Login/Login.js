@@ -1,9 +1,20 @@
 import "./Login.css"
+import { useState } from 'react'
 
 const Login = () => {
+    const [formData, setFormData] = useState({
+        username: "",
+        password: ""
+    })
+    
     function handleSubmit(e) {
         e.preventDefault()
-        console.log(e)
+    }
+
+    function handleFormData(event) {
+        setFormData({...formData,
+            [event.target.name] : event.target.value
+        })
     }
     
     return (
@@ -11,9 +22,9 @@ const Login = () => {
             <h3>Log in</h3>
             <form onSubmit={handleSubmit}>
                 <label htmlFor='username'>Username:</label><br/>
-                <input type='text' id='username' value=''></input><br/>
+                <input type='text' name='username' value={formData.username} onChange={handleFormData}></input><br/>
                 <label htmlFor='password'>Password:</label><br/>
-                <input type='password' id='password'></input><br/>
+                <input type='password' name='password' value={formData.password} onChange={handleFormData}></input><br/>
                 <button type='submit'>Login</button>
             </form>
         </div>
