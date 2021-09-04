@@ -15,6 +15,10 @@ const Login = () => {
     function handleSubmit(e) {
         e.preventDefault()
         dispatch(loginAction(formData))
+        setFormData({
+            username: "", 
+            password: ""
+        })
     }
 
     function handleFormData(event) {

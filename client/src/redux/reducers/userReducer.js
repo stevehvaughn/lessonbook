@@ -7,7 +7,7 @@ export function userReducer(state = initialState, action) {
         case "LOGIN_USER":
             return {isLoggedIn: true, userInfo: action.payload}
         case "LOGOUT_USER":
-            return {}
+            return initialState
         case "SIGNUP_NEW_USER":
             return {}
         case "LOGIN_ERROR":

@@ -1,6 +1,7 @@
 import { MenuItems } from "./MenuItems"
 import { Button } from '../Button'
 import { toggleActive } from "../../redux/actions/navbarActions"
+import { logoutAction } from "../../redux/actions/userActions"
 import { useDispatch, useSelector } from 'react-redux'
 import './Navbar.css'
 
@@ -10,8 +11,13 @@ const Navbar = () => {
     function handleClick() {
        dispatch(toggleActive())
     }
+
+    function handleLogOut() {
+        dispatch(logoutAction())
+    }
     
     const active = useSelector(state => state.navbar.active)
+    const user = useSelector(state => state.user)
     
     return (
         <nav className="NavbarItems">
@@ -28,7 +34,10 @@ const Navbar = () => {
                     )
                 })}
             </ul>
-            <Button>Sign Up</Button>
+            {user.isLoggedIn 
+            ? <Button onClick={handleLogOut}>Log Out</Button>
+            : <Button>Sign Up</Button>
+            }
         </nav>
     )
 }

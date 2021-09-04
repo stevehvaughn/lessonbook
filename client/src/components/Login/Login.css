@@ -1,3 +1,8 @@
 * {
 	text-align: center;
 }
+
+.errors {
+	color: red;
+	padding: 2rem;
+}
