@@ -1,14 +1,19 @@
 import "./Login.css"
 import { useState } from 'react'
+import { useDispatch } from "react-redux"
+import { loginAction } from "../../redux/actions/userActions"
 
 const Login = () => {
     const [formData, setFormData] = useState({
         username: "",
         password: ""
     })
+
+    const dispatch = useDispatch()
     
     function handleSubmit(e) {
         e.preventDefault()
+        dispatch(loginAction(formData))
     }
 
     function handleFormData(event) {
