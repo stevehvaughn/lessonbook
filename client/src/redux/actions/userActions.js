@@ -7,11 +7,19 @@ export function loginAction(formData) {
             },
             body: JSON.stringify(formData)
         })
-        .then(resp => resp.json())
-        .then(data => dispatch({
-            type: "LOGIN_USER",
-            payload: data
-        }))
+        .then(resp => {
+            if (resp.ok) {
+                resp.json().then(data => dispatch({
+                    type: "LOGIN_USER",
+                    payload: data
+                }))
+            } else {
+                resp.json().then(err => dispatch({
+                    type: "LOGIN_ERROR",
+                    payload: err.errors
+                }))
+            }
+        })
     }
 }
 
