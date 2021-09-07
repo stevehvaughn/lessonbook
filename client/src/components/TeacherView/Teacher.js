@@ -21,6 +21,7 @@ const Teacher = () => {
                     />
                 )})}
             </div>
+            <h3>Upcoming Lessons</h3>
         </div>
     )
 }
