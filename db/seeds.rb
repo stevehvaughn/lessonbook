@@ -12,6 +12,7 @@ puts "Seeding Users as Teachers"
         email: Faker::Internet.email,
         username: Faker::Internet.username,
         password: "12345678",
+        picture_url: Faker::Avatar.image
     )
 end
 
@@ -28,7 +29,8 @@ teacher_ids = [id1, id2, id3]
         email: Faker::Internet.email,
         username: Faker::Internet.username,
         password: "12345678",
-        teacher_id: teacher_ids.sample 
+        teacher_id: teacher_ids.sample, 
+        picture_url: Faker::Avatar.image
     )
 end
 

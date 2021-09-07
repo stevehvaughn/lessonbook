@@ -1,5 +1,5 @@
-import Student from './Student/Student'
-import Teacher from './Teacher/Teacher'
+import Student from './StudentView/Student'
+import Teacher from './TeacherView/Teacher'
 import { useSelector } from 'react-redux'
 
 const Home = () => {

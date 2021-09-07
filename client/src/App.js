@@ -15,7 +15,7 @@ const App = () => {
     setIsLoading(true)
     dispatch(loginPersist())
     setIsLoading(false)
-  }, [])
+  }, [dispatch])
  
   if (isLoading === true) {
     return (

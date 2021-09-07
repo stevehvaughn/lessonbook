@@ -1,0 +1,25 @@
+.avatar-picture {
+	border-radius: 50%;
+	border: solid;
+	min-width: 150px;
+	max-width: 200px;
+}
+
+.student-avatar-picture {
+	border-radius: 50%;
+	border: solid;
+	min-width: 50px;
+	max-width: 100px;
+}
+
+.single-student-container {
+	display: block;
+	border: solid;
+	padding: 1rem;
+	margin: 1rem;
+}
+
+.students-container {
+	display: grid;
+	grid-template-rows: auto;
+}
