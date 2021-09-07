@@ -10,4 +10,16 @@ class User < ApplicationRecord
     validates :username, uniqueness: true, presence: true, length: { minimum: 4 }
     validates :email, uniqueness: true, presence: true
     validates :password, presence: true
+
+    def combined_name
+        combined_name = self.first_name + " " + self.last_name
+    end
+
+    def students_or_teacher
+        if self.teacher_id == nil
+            students = self.students
+        else
+            teacher = self.teacher
+        end
+    end
 end
