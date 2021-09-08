@@ -22,7 +22,7 @@ id2 = User.second.id
 id3 = User.third.id
 
 teacher_ids = [id1, id2, id3]
-lesson_times = %w(9AM 10AM 11AM 12PM 1PM 2PM 3PM 4PM)
+lesson_times = %w(8AM 9AM 10AM 11AM 12PM 1PM 2PM 3PM 4PM 5PM)
 15.times do 
     User.create(
         first_name: Faker::Name.first_name,
