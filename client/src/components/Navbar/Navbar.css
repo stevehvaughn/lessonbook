@@ -15,6 +15,10 @@
 	white-space: nowrap;
 }
 
+.navbar-logo-big {
+	text-decoration: none;
+}
+
 .fa-music {
 	font-size: 1.6rem;
 }
