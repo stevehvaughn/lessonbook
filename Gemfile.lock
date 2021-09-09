@@ -82,6 +82,7 @@ GEM
       activesupport (>= 5.0)
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
+    ice_cube (0.16.3)
     jsonapi-renderer (0.2.2)
     listen (3.7.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
@@ -138,6 +139,9 @@ GEM
     rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    schedulable (0.0.10)
+      ice_cube
+      rails (>= 4.0.3)
     spring (2.1.1)
     sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
@@ -163,11 +167,13 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   byebug
   faker
+  ice_cube
   listen (~> 3.3)
   pg (~> 1.1)
   puma (~> 5.0)
   rack-cors
   rails (~> 6.1.4)
+  schedulable
   spring
   tzinfo-data
 
