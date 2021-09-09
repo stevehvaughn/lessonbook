@@ -6,6 +6,7 @@ import { loginPersist } from "./redux/actions/userActions";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { Switch, Route } from 'react-router-dom'
+import CreateLesson from "./components/Lessons/CreateLesson";
 
 const App = () => {
   const dispatch = useDispatch()
@@ -32,6 +33,9 @@ const App = () => {
         <>
           <Switch>
               <Route path="/" exact component={() => <Home/>} />
+          </Switch>
+          <Switch>
+              <Route path="/create-lesson" exact component={() => <CreateLesson/>} />
           </Switch>
           <Switch>
               <Route path="/students" exact component={() => <Home/>} />

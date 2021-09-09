@@ -26,11 +26,11 @@ const Teacher = () => {
                 return 0;
         }
     }
-    
-    const sortedStudentsByLessonTime = students.sort(function(a, b){
-        let c = Date.parse('06/06/2019 ' + a.lesson_time) 
-        let d = Date.parse('06/06/2019 ' + b.lesson_time) 
-     
+
+    const sortedByDay = students.sort(function(a, b){
+        let c = convertDayOfWeekToInteger(a.lesson_day)
+        let d = convertDayOfWeekToInteger(b.lesson_day)
+
         if (c > d) {
             return 1
         } else {
