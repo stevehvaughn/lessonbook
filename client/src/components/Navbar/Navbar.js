@@ -17,12 +17,98 @@ const Navbar = () => {
         dispatch(logoutAction())
     }
 
-    function handleCreateAccount(e) {
-
-    }
-    
     const active = useSelector(state => state.navbar.active)
     const user = useSelector(state => state.user)
+    
+    function renderContent() {
+        if (user.isLoggedIn === false) {
+            return (
+                <>
+                <li>
+                    <Link className="nav-links" to="/students">
+                        Students
+                    </Link>
+                </li>
+                <li>
+                    <Link className="nav-links" to="/teachers">
+                        Teachers
+                    </Link>
+                </li>
+                <li>
+                    <Link className="nav-links" to="/contact">
+                        Contact Us
+                    </Link>
+                </li> 
+                <li>
+                    <Link className="nav-links-mobile" to="/signup">
+                        Sign Up
+                    </Link>
+                </li>
+                </>
+            )
+        } else if (user.isLoggedIn && user.userInfo.teacher === null) {
+            return (
+                <>
+                <li>
+                    <Link className="nav-links" to="/">
+                        Home
+                    </Link>
+                </li>
+                <li>
+                    <Link className="nav-links" to="/create-lesson">
+                        Create Lesson
+                    </Link>
+                </li>
+                <li>
+                    <Link className="nav-links" to="/grades">
+                        Grades
+                    </Link>
+                </li>
+                <li>
+                    <Link className="nav-links" to="/studio">
+                        Studio Info
+                    </Link>
+                </li>
+                <li>
+                    <Link className="nav-links-mobile" to="/" onClick={() => handleLogOut()}>
+                        Log Out
+                    </Link>
+                </li>
+                </>
+            )
+        } else {
+            return (
+                <>
+                <li>
+                    <Link className="nav-links" to="/">
+                        Home
+                    </Link>
+                </li>
+                <li>
+                    <Link className="nav-links" to="/practice">
+                        Practice Journal
+                    </Link>
+                </li>
+                <li>
+                    <Link className="nav-links" to="/grades">
+                        Grades
+                    </Link>
+                </li>
+                <li>
+                    <Link className="nav-links" to="/past-lessons">
+                        Past Lessons
+                    </Link>
+                </li>
+                <li>
+                    <Link className="nav-links-mobile" to="/" onClick={() => handleLogOut()}>
+                        Log Out
+                    </Link>
+                </li>
+                </>
+            )
+        }
+    }
+    
     
     return (
         <nav className="NavbarItems">
@@ -33,64 +119,7 @@ const Navbar = () => {
                 <i className={active ? "fas fa-times" : "fas fa-bars"}></i>
             </div>
             <ul className={active ? "nav-menu active" : "nav-menu"}>
-            {user.isLoggedIn 
-            ? 
-            <>
-            <li>
-                <Link className="nav-links" to="/home">
-                    Home
-                </Link>
-            </li>
-            <li>
-                <Link className="nav-links" to="/students">
-                    Students
-                </Link>
-            </li>
-            <li>
-                <Link className="nav-links" to="/teachers">
-                    Teachers
-                </Link>
-            </li>
-            <li>
-                <Link className="nav-links" to="/contact">
-                    Contact Us
-                </Link>
-            </li>
-            <li>
-                <Link className="nav-links-mobile" to="/" onClick={() => handleLogOut()}>
-                    Log Out
-                </Link>
-            </li>
-            </>
-            :
-            <>
-            <li>
-                <Link className="nav-links" to="/home">
-                    Home
-                </Link>
-            </li>
-            <li>
-                <Link className="nav-links" to="/students">
-                    Students
-                </Link>
-            </li>
-            <li>
-                <Link className="nav-links" to="/teachers">
-                    Teachers
-                </Link>
-            </li>
-            <li>
-                <Link className="nav-links" to="/contact">
-                    Contact Us
-                </Link>
-            </li> 
-            <li>
-                <Link className="nav-links-mobile" to="/signup">
-                    Sign Up
-                </Link>
-            </li>
-            </>
-            } 
+            {renderContent()}
             </ul>
             {user.isLoggedIn 
             ?   <Button onClick={handleLogOut}>Log Out</Button>
