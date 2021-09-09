@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_09_143117) do
+ActiveRecord::Schema.define(version: 2021_09_09_145938) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,22 @@ ActiveRecord::Schema.define(version: 2021_09_09_143117) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_practice_logs_on_user_id"
+  end
+
+  create_table "schedules", force: :cascade do |t|
+    t.string "schedulable_type"
+    t.bigint "schedulable_id"
+    t.date "date"
+    t.time "time"
+    t.string "rule"
+    t.string "interval"
+    t.text "day"
+    t.text "day_of_week"
+    t.datetime "until"
+    t.integer "count"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["schedulable_type", "schedulable_id"], name: "index_schedules_on_schedulable"
   end
 
   create_table "users", force: :cascade do |t|
