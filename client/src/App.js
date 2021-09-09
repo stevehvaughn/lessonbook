@@ -2,6 +2,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Login from "./components/Login/Login";
 import Home from "./components/Home";
 import CreateAccount from "./components/CreateAccount/CreateAccount";
+import About from "./components/About/About";
 import { loginPersist } from "./redux/actions/userActions";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
@@ -51,6 +52,9 @@ const App = () => {
         <>
           <Switch>
             <Route path="/signup" exact component={() => <CreateAccount/>} />
+          </Switch>
+          <Switch>
+              <Route path="/about" exact component={() => <About />} />
           </Switch>
           <Switch>
             <Route path='/' exact component={() => <Login />} />

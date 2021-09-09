@@ -1,0 +1,41 @@
+.about-header-photo {
+	width: 100%;
+	background-size: cover;
+}
+
+.about-header-text {
+	font-size: 8vw;
+	color: white;
+	position: absolute;
+	top: 15vh;
+	left: 5vw;
+	text-align: left;
+}
+
+.about-div {
+	border: solid;
+	padding: 1rem;
+	margin: 1rem;
+}
+
+.about-text {
+	text-align: left;
+}
+
+.about-title {
+	padding: 1rem 0px;
+	font-weight: bolder;
+}
+
+.developer-photo {
+	max-width: 100%;
+}
+
+.about-link {
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.about-link:hover {
+	color: violet;
+}
