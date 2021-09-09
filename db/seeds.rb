@@ -51,6 +51,7 @@ assignments = ["Rochut 4", "Rochut 5", "Rochut 6", 'Arbans pg. 220', "Arbans pg.
         repertoire: repertoires.sample(),
         assignment: assignments.sample(),
         status: 0,
+        date: Faker::Date.between(from: '2021-09-01', to: '2021-12-08')
     )
 end
 
