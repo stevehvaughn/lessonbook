@@ -1,4 +1,3 @@
-import { MenuItems } from "./MenuItems"
 import { Button } from '../Button'
 import { toggleActive } from "../../redux/actions/navbarActions"
 import { logoutAction } from "../../redux/actions/userActions"
