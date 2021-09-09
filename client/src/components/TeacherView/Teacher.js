@@ -47,9 +47,11 @@ const Teacher = () => {
 
     return (
         <div>
-            <h1>Professor {teacher.last_name}'s Studio</h1>
-            <img className="avatar-picture" src={teacher.picture_url} alt="teacher_picture"></img>
-            <h2>Current Students</h2>
+            <div className='teacher-header'>
+                <img className="avatar-picture" src={teacher.picture_url} alt="teacher_picture"></img>
+                <h1 id="teacher-header-text" className='teacher-text'>  Professor {teacher.last_name}'s Studio</h1>
+            </div>
+            <h1 className='teacher-text'>Current Students</h1>
             <div className='students-container'>
                 {students.map(student => {return (
                     <StudentOfTeacher 

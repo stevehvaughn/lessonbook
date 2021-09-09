@@ -48,8 +48,7 @@ const CreateLesson = () => {
                     {students.map(student => { return (
                         <option value={student.id}>{student.combined_name}</option>
                     )})}
-                </select>
-                <br/>
+                </select><br/><br/>
                 <button type='submit'>Complete Lesson</button><br/>
             </form>
         </div>

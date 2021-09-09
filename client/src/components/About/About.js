@@ -6,7 +6,7 @@ const About = () => {
     return (
         <div>
             <div>
-                <h1 className='about-header-text'>About</h1>
+                <h1 className='about-header-text'>About<br/>LessonsApp</h1>
                 <img className='about-header-photo' src={headerPhoto} alt="music-background"></img>
             </div>
             <div className='about-div'>
@@ -17,7 +17,7 @@ const About = () => {
                 <h1 className='about-title about-text'>The Developer</h1><br/>
                 <h2 className='about-text'>Steve Vaughn</h2><br/>
                 <img className='developer-photo' src={headshot} alt="steve-vaughn-headshot"></img>
-                <p className='about-text'>Steve is a full-stack software engineer and professional musician living in Denver, Colorado. Steve is an adjunct professor at the University of Northern Colorado where he teaches the euphonium studio and uses LessonApp daily! He performs with the Fort Collins Symphony as well as their principal tubist. Steve graduated from the Flatiron School with a certificate in Software Engineering in 2021 and is actively searching for jobs while maintaining an active teaching and performing schedule.</p><br/>
+                <p className='about-text'>Steve is a full-stack software engineer and professional musician living in Denver, Colorado. Steve is an adjunct professor at the University of Northern Colorado where he teaches the euphonium studio and uses LessonApp daily! He performs with the Fort Collins Symphony as principal tubist and is a performing artist with the S.E. Shires company. Steve graduated from the Flatiron School with a certificate in Software Engineering in 2021 and is actively searching for jobs while maintaining an active teaching and performing schedule.</p><br/>
                 <p className='about-text'>To learn more about Steve, <a className='about-link'href="https://stevehvaughn.medium.com/">check out his blog!</a></p>
             </div>
         </div>

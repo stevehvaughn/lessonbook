@@ -1,15 +1,7 @@
 .avatar-picture {
 	border-radius: 50%;
 	border: solid;
-	min-width: 150px;
-	max-width: 200px;
-}
-
-.student-avatar-picture {
-	border-radius: 50%;
-	border: solid;
-	min-width: 50px;
-	max-width: 100px;
+	width: 8vw;
 }
 
 .single-student-container {
@@ -42,4 +34,18 @@
 	display: block;
 	margin: 1rem;
 	padding: 1rem;
+}
+
+.teacher-header {
+	display: flex;
+	align-items: center;
+	padding: 1rem;
+}
+
+.teacher-text {
+	font-size: 3vw;
+}
+
+#teacher-header-text {
+	padding-left: 0.5rem;
 }
