@@ -3,7 +3,7 @@ import StudentsOfTeacher from './StudentsOfTeacher'
 import './TeacherView.css'
 
 const Teacher = () => {
-    const students = useSelector(state => state.user.userInfo.students_or_teacher)
+    const students = useSelector(state => state.user.userInfo.students)
     const teacher = useSelector(state => state.user.userInfo)
     
     return (
@@ -18,6 +18,8 @@ const Teacher = () => {
                         first_name = {student.first_name}
                         last_name = {student.last_name}
                         picture_url = {student.picture_url}
+                        username = {student.username}
+                        lessons = {student.lessons}
                     />
                 )})}
             </div>
