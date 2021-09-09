@@ -1,7 +1,13 @@
-const Lesson = ({ objective, repertoire, assignment, earned_grade}) => {
+import './Lessons.css'
+
+const Lesson = ({ objective, repertoire, assignment, earned_grade, date}) => {
+    const formattedDate = date.strftime()
+
+    console.log(formattedDate)
+    
     return (
-        <div>
-            <h3>This is a lesson</h3>
+        <div className='single-lesson-container'>
+            <h3>Lesson Date: {date}</h3>
         </div>
     )
 }

@@ -8,7 +8,7 @@ const StudentOfTeacher = ({first_name, last_name, picture_url, lessons, username
     function handleShowLessons() {
         setShowLessons(!showLessons)
     }
-        
+
     return (
         <div className='single-student-container'>
             <img className='student-avatar-picture' src={picture_url} alt={last_name}></img>
@@ -20,10 +20,12 @@ const StudentOfTeacher = ({first_name, last_name, picture_url, lessons, username
                 <div>
                     {lessons.map(lesson => { return (
                         <Lesson 
+                            key = {lesson.id}
                             assignment = {lesson.assignment}
                             objective = {lesson.objective}
                             repertoire = {lesson.repertoire}
                             earned_grade = {lesson.earned_grade}
+                            date = {lesson.date}
                         />
                     )})}
                 </div>
