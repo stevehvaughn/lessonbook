@@ -23,7 +23,7 @@ id3 = User.third.id
 
 teacher_ids = [id1, id2, id3]
 lesson_times = ['08:00 am', '09:00 am', '10:00 am', '11:00 am', '12:00 pm', '01:00 pm', '02:00 pm', '03:00 pm', '04:00 pm', '05:00 pm']
-lesson_days = %w(monday, tuesday, wednesday, thursday, friday)
+lesson_days = %w(monday tuesday wednesday thursday friday)
 year_in_school_options = ["Freshman", "Sophomore", "Junior", "Senior", "1st Year Masters", "2nd Year Masters", "1st Year Doctorate", "2nd Year Doctorate", "3rd Year Doctorate", "4th+ Year Doctorate"]
 15.times do 
     User.create(

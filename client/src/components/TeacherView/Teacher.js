@@ -1,14 +1,36 @@
 import { useSelector } from 'react-redux'
+import { useState } from 'react'
 import StudentOfTeacher from './StudentOfTeacher'
+import SelectedLesson from './SelectedLesson'
 import './TeacherView.css'
 
 const Teacher = () => {
     const students = useSelector(state => state.user.userInfo.students)
     const teacher = useSelector(state => state.user.userInfo)
+
+    const [selectedLesson, setSelectedLesson] = useState(null)
+
+    function convertDayOfWeekToInteger(day) {
+        switch (day) {
+            case 'monday':
+                return 1;
+            case 'tuesday':
+                return 2;
+            case 'wednesday':
+                return 3;
+            case 'thursday':
+                return 4;
+            case 'friday': 
+                return 5;
+            default: 
+                return 0;
+        }
+    }
     
     const sortedStudentsByLessonTime = students.sort(function(a, b){
-        let c = Date.parse('06/06/2019 ' + a.lesson_time)
-        let d = Date.parse('06/06/2019 ' + b.lesson_time)
+        let c = Date.parse('06/06/2019 ' + a.lesson_time) 
+        let d = Date.parse('06/06/2019 ' + b.lesson_time) 
+     
         if (c > d) {
             return 1
         } else {
@@ -16,11 +38,18 @@ const Teacher = () => {
         }
     })
 
+    function renderFullLesson(e) {
+        const clickedLesson = parseInt(e.target.id)
+        fetch(`/lessons/${clickedLesson}`)
+        .then(resp => resp.json())
+        .then(data => setSelectedLesson(data))
+    }
+
     return (
         <div>
             <h1>Professor {teacher.last_name}'s Studio</h1>
             <img className="avatar-picture" src={teacher.picture_url} alt="teacher_picture"></img>
-            <h3>Current Students</h3>
+            <h2>Current Students</h2>
             <div className='students-container'>
                 {students.map(student => {return (
                     <StudentOfTeacher 
@@ -31,11 +60,18 @@ const Teacher = () => {
                         username = {student.username}
                         lessons = {student.lessons}
                         lesson_time = {student.lesson_time}
+                        lesson_day = {student.lesson_day}
                         year_in_school = {student.year_in_school}
+                        renderFullLesson = {renderFullLesson}
                     />
                 )})}
             </div>
-            <h3>Upcoming Lessons</h3>
+            { selectedLesson 
+            ?   <SelectedLesson 
+                    selectedLesson = {selectedLesson}
+                />
+            : null 
+            }
         </div>
     )
 }

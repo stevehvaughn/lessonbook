@@ -21,5 +21,25 @@
 
 .students-container {
 	display: grid;
-	grid-template-rows: auto;
+	grid-template-columns: auto auto auto;
+	padding: 10px;
+}
+
+.students-lessons-list {
+	list-style: none;
+}
+
+.students-lessons-container {
+	padding: 1rem;
+}
+
+.single-lesson {
+	margin: 1rem;
+	cursor: pointer;
+}
+
+.selected-lesson-container {
+	display: block;
+	margin: 1rem;
+	padding: 1rem;
 }
