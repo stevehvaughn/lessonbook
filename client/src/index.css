@@ -6,6 +6,6 @@
 	font-family: 'Source Sans Pro', sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	line-height: calc(21px + 1.05vw);
-	font-size: calc(14px + 0.35vw);
+	/* line-height: calc(21px + 1.05vw);
+	font-size: calc(14px + 0.35vw); */
 }
