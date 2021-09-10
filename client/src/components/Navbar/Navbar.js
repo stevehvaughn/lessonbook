@@ -117,7 +117,7 @@ const Navbar = () => {
     return (
         <nav className="NavbarItems">
             <Link className='navbar-logo-big' to="/">
-                <h1 className='navbar-logo'>Lessons App</h1>
+                <h1 className='navbar-logo'>lessonbook</h1>
             </Link>
             <div className='menu-icon' onClick={handleClick}>
                 <i className={active ? "fas fa-times" : "fas fa-bars"}></i>
@@ -126,7 +126,9 @@ const Navbar = () => {
             {renderContent()}
             </ul>
             {user.isLoggedIn 
-            ?   <Button onClick={handleLogOut}>Log Out</Button>
+            ?   <Link to="/">
+                    <Button onClick={handleLogOut}>Log Out</Button>
+                </Link>
             :   <Link to="/signup">
                     <Button>
                         Sign Up

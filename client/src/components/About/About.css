@@ -4,9 +4,8 @@
 }
 
 .about-header-text {
-	white-space: pre-wrap;
 	font-size: 10vw;
-	line-height: 5vh;
+	line-height: 75px;
 	color: white;
 	position: absolute;
 	top: 15vh;
