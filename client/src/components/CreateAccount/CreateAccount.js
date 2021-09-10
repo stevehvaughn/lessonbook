@@ -2,11 +2,14 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { getAllTeachers } from '../../redux/actions/userActions';
 import { Link } from 'react-router-dom';
+import axios from 'axios'
+import CreateAccountErrors from './CreateAccountErrors';
 
 const CreateAccount = () => {
+    const dispatch = useDispatch()
     useEffect(() => {
         dispatch(getAllTeachers())
-    }, [])
+    }, [dispatch])
 
     const [newUserData, setNewUserData] = useState({
         first_name: "",
@@ -18,10 +21,9 @@ const CreateAccount = () => {
     })
     const [isTeacher, setIsTeacher] = useState(true)
     const [selectedFile, setSelectedFile] = useState(null)
-
+    const [errors, setErrors] = useState([])
     const teachers = useSelector(state => state.teachers)
 
-    const dispatch = useDispatch()
 
     function handleSetIsTeacher(e) {
         setIsTeacher(Boolean(e.target.value))
@@ -35,6 +37,7 @@ const CreateAccount = () => {
 
     function handleNewUserSubmit(e) {
         e.preventDefault()
+        setErrors([])
         fetch('/users', {
             method: "POST",
             headers: {
@@ -46,7 +49,7 @@ const CreateAccount = () => {
             if (resp.ok) {
                 resp.json().then(data => console.log(data))
             } else {
-                resp.json().then(err => console.log(err))
+                resp.json().then(err => setErrors(err.errors))
             }
         })
     }
@@ -56,7 +59,7 @@ const CreateAccount = () => {
     }
 
     function handleFileUpload() {
-
+        axios.post('')
     }
    
     return (
@@ -78,7 +81,7 @@ const CreateAccount = () => {
                 <button onClick={handleFileUpload}>Upload</button>
                 <label htmlFor='is_teacher'>Are you a Student or Teacher?</label><br/>
                 <select id='students' name='is_teacher' onChange={handleSetIsTeacher}>
-                    <option selected value="true">Choose</option>
+                    <option defaultValue value="true">Choose</option>
                     <option value="true">Teacher</option>
                     <option value="">Student</option>
                 </select><br/><br/>
@@ -99,6 +102,12 @@ const CreateAccount = () => {
                         Already Have an Account?
                     </button>
                 </Link>
+                {errors.map(error => { return (
+                    <CreateAccountErrors
+                        key = {error}
+                        error = {error}
+                    />
+                )})}
             </form>
         </div>
     )
