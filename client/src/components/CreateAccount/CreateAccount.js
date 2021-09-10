@@ -12,10 +12,9 @@ const CreateAccount = () => {
         dispatch(getAllTeachers())
         setSuccess(false)
     }, [dispatch])
-    const allInputs = {imgUrl: ''}
     const [isTeacher, setIsTeacher] = useState(true)
     const [selectedFile, setSelectedFile] = useState(null)
-    const [fileAsUrl, setFileAsUrl] = useState(allInputs)
+    const [fileAsUrl, setFileAsUrl] = useState("")
     const [errors, setErrors] = useState([])
     const [success, setSuccess] = useState(false)
     const teachers = useSelector(state => state.teachers)
@@ -86,9 +85,10 @@ const CreateAccount = () => {
           // gets the download url then sets the image from firebase as the value for the imgUrl key:
           storage.ref('images').child(selectedFile.name).getDownloadURL()
            .then(fireBaseUrl => {
-             setFileAsUrl(prevObject => ({...prevObject, imgUrl: fireBaseUrl}))
+             setFileAsUrl(fireBaseUrl)
              setNewUserData({...newUserData, 
-                picture_url: fileAsUrl.imgUrl})
+                picture_url: fireBaseUrl
+            })
            })
         })
     }
