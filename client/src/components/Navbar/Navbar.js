@@ -126,7 +126,9 @@ const Navbar = () => {
             {renderContent()}
             </ul>
             {user.isLoggedIn 
-            ?   <Button onClick={handleLogOut}>Log Out</Button>
+            ?   <Link to="/">
+                    <Button onClick={handleLogOut}>Log Out</Button>
+                </Link>
             :   <Link to="/signup">
                     <Button>
                         Sign Up

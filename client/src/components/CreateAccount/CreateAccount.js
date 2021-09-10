@@ -4,17 +4,20 @@ import { getAllTeachers } from '../../redux/actions/userActions';
 import { Link } from 'react-router-dom';
 import { storage } from '../../firebase/firebase';
 import CreateAccountErrors from './CreateAccountErrors';
+import CreateAccountSuccess from './CreateAccountSuccess';
 
 const CreateAccount = () => {
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(getAllTeachers())
+        setSuccess(false)
     }, [dispatch])
     const allInputs = {imgUrl: ''}
     const [isTeacher, setIsTeacher] = useState(true)
     const [selectedFile, setSelectedFile] = useState(null)
     const [fileAsUrl, setFileAsUrl] = useState(allInputs)
     const [errors, setErrors] = useState([])
+    const [success, setSuccess] = useState(false)
     const teachers = useSelector(state => state.teachers)
     const lessonTimes = ['08:00 am', '09:00 am', '10:00 am', '11:00 am', '12:00 pm', '01:00 pm', '02:00 pm', '03:00 pm', '04:00 pm', '05:00 pm']
     const yearInSchoolOptions = ["Freshman", "Sophomore", "Junior", "Senior", "1st Year Masters", "2nd Year Masters", "1st Year Doctorate", "2nd Year Doctorate", "3rd Year Doctorate", "4th+ Year Doctorate"]
@@ -52,7 +55,7 @@ const CreateAccount = () => {
         })
         .then(resp => {
             if (resp.ok) {
-                resp.json().then(data => console.log(data))
+                resp.json().then(setSuccess(true))
             } else {
                 resp.json().then(err => setErrors(err.errors))
             }
@@ -84,10 +87,9 @@ const CreateAccount = () => {
           storage.ref('images').child(selectedFile.name).getDownloadURL()
            .then(fireBaseUrl => {
              setFileAsUrl(prevObject => ({...prevObject, imgUrl: fireBaseUrl}))
+             setNewUserData({...newUserData, 
+                picture_url: fileAsUrl.imgUrl})
            })
-           .then(setNewUserData({...newUserData, 
-               picture_url: fileAsUrl.imgUrl
-           }))
         })
     }
 
@@ -153,16 +155,20 @@ const CreateAccount = () => {
                 }
                 <button type='submit'>Create Account</button><br/>
                 <Link to="/" >
-                    <button>
-                        Already Have an Account?
-                    </button>
+                    <button>Already Have an Account?</button>
                 </Link>
+                { success 
+                ? <CreateAccountSuccess />
+                : 
+                <>
                 {errors.map(error => { return (
                     <CreateAccountErrors
                         key = {error}
                         error = {error}
                     />
                 )})}
+                </>
+                }
             </form>
         </div>
     )
