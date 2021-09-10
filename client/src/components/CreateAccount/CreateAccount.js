@@ -68,32 +68,33 @@ const CreateAccount = () => {
     function handleFileUpload(e) {
         e.preventDefault()
         console.log('start of upload')
-        if (selectedFile === '' ) {
-            console.error(`not an image, the image file is a ${typeof(selectedFile)}`)
-        }
+        if (selectedFile.type !== 'image/jpeg' ) {
+            setErrors([`Please upload a .jpeg image, this file type is: ${selectedFile.type}`])
+        } else {
+            const uploadTask = storage.ref(`/images/${selectedFile.name}`).put(selectedFile)
 
-        const uploadTask = storage.ref(`/images/${selectedFile.name}`).put(selectedFile)
-
-        uploadTask.on('state_changed', 
-        (snapShot) => {
-          //takes a snap shot of the process as it is happening
-        }, (err) => {
-          //catches the errors
-          console.log(err)
-        }, () => {
-          // gets the functions from storage refences the image storage in firebase by the children
-          // gets the download url then sets the image from firebase as the value for the imgUrl key:
-          storage.ref('images').child(selectedFile.name).getDownloadURL()
-           .then(fireBaseUrl => {
-             setFileAsUrl(fireBaseUrl)
-             setNewUserData({...newUserData, 
-                picture_url: fireBaseUrl
+            uploadTask.on('state_changed', 
+            (snapShot) => {
+            //takes a snap shot of the process as it is happening
+            }, (err) => {
+            //catches the errors
+            console.log(err)
+            }, () => {
+            // gets the functions from storage refences the image storage in firebase by the children
+            // gets the download url then sets the image from firebase as the value for the imgUrl key:
+            storage.ref('images').child(selectedFile.name).getDownloadURL()
+            .then(fireBaseUrl => {
+                setFileAsUrl(fireBaseUrl)
+                setNewUserData({...newUserData, 
+                    picture_url: fireBaseUrl
+                })
+                setErrors([])
             })
-           })
-        })
+            })
+        }
     }
 
-    console.log(newUserData)
+    console.log(selectedFile)
    
     return (
         <div>
