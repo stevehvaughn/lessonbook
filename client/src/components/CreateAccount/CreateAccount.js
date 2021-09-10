@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { storage } from '../../firebase/firebase';
 import CreateAccountErrors from './CreateAccountErrors';
 import CreateAccountSuccess from './CreateAccountSuccess';
+import './CreateAccount.css'
 
 const CreateAccount = () => {
     const dispatch = useDispatch()
@@ -34,6 +35,11 @@ const CreateAccount = () => {
 
     function handleSetIsTeacher(e) {
         setIsTeacher(Boolean(e.target.value))
+        if (Boolean(e.target.value) === true) {
+            setNewUserData({...newUserData,
+                teacher_id: null
+            })
+        }
     }
 
     function handleNewUserData(e) {
@@ -94,7 +100,7 @@ const CreateAccount = () => {
         }
     }
 
-    console.log(selectedFile)
+    console.log(newUserData)
    
     return (
         <div>

@@ -1,0 +1,9 @@
+.errors {
+	color: red;
+	padding: 0.5rem;
+}
+
+.success {
+	color: blue;
+	padding: 2rem;
+}

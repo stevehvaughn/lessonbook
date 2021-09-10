@@ -1,6 +1,8 @@
+import './CreateAccount.css'
+
 const CreateAccountErrors = ({error}) => {
     return (
-       <p>{error}</p>
+       <h3 className='errors'>{error}</h3>
     )
 }
 

@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom'
+import './CreateAccount.css'
 
 const CreateAccountSuccess = () => {
     return (
         <div>
-            <h1>Your Account was Created Successfully!</h1>
+            <h3 className='success'>Your Account was Created Successfully!</h3>
             <Link to="/" >
                 <button>Click here to Login</button>
             </Link>
