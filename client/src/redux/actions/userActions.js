@@ -55,3 +55,14 @@ export function logoutAction() {
         })
     }
 }
+
+export function getAllTeachers() {
+    return (dispatch) => {
+        return fetch("/teachers")
+        .then(resp => resp.json())
+        .then(data => dispatch({
+            type: "GET_TEACHERS",
+            payload: data
+        }))
+    }
+}

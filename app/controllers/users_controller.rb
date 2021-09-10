@@ -5,6 +5,11 @@ class UsersController < ApplicationController
         render json: users
     end
     
+    def teachers
+        teachers = User.teachers
+        render json: teachers
+    end
+    
     def create 
         user = User.create(user_params)
         if user.valid? 
@@ -23,6 +28,7 @@ class UsersController < ApplicationController
             render json: { error: ["Not Authorized"]}, status: :unauthorized
         end
     end
+
 
     private 
     def user_params

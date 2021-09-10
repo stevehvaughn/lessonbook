@@ -10,33 +10,33 @@ const Teacher = () => {
 
     const [selectedLesson, setSelectedLesson] = useState(null)
 
-    function convertDayOfWeekToInteger(day) {
-        switch (day) {
-            case 'monday':
-                return 1;
-            case 'tuesday':
-                return 2;
-            case 'wednesday':
-                return 3;
-            case 'thursday':
-                return 4;
-            case 'friday': 
-                return 5;
-            default: 
-                return 0;
-        }
-    }
+    // function convertDayOfWeekToInteger(day) {
+    //     switch (day) {
+    //         case 'monday':
+    //             return 1;
+    //         case 'tuesday':
+    //             return 2;
+    //         case 'wednesday':
+    //             return 3;
+    //         case 'thursday':
+    //             return 4;
+    //         case 'friday': 
+    //             return 5;
+    //         default: 
+    //             return 0;
+    //     }
+    // }
 
-    const sortedByDay = students.sort(function(a, b){
-        let c = convertDayOfWeekToInteger(a.lesson_day)
-        let d = convertDayOfWeekToInteger(b.lesson_day)
+    // const sortedByDay = students.sort(function(a, b){
+    //     let c = convertDayOfWeekToInteger(a.lesson_day)
+    //     let d = convertDayOfWeekToInteger(b.lesson_day)
 
-        if (c > d) {
-            return 1
-        } else {
-            return -1
-        }
-    })
+    //     if (c > d) {
+    //         return 1
+    //     } else {
+    //         return -1
+    //     }
+    // })
 
     function renderFullLesson(e) {
         const clickedLesson = parseInt(e.target.id)

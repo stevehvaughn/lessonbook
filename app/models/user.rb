@@ -14,4 +14,12 @@ class User < ApplicationRecord
     def combined_name
         combined_name = self.first_name + " " + self.last_name
     end
+
+    def self.teachers
+        self.where({ teacher_id: nil })
+    end
+
+    def self.students
+        self.where.not({ teacher_id: nil })
+    end
 end
