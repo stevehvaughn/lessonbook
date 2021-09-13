@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import SelectedLesson from './SelectedLesson'
 import StudentOfTeacher from './StudentOfTeacher'
 import './TeacherView.css'

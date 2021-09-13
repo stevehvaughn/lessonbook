@@ -10,6 +10,11 @@ class UsersController < ApplicationController
         teachers = User.teachers
         render json: teachers
     end
+
+    def users_students
+        users_students = self.students
+        render json: users_students
+    end
     
     def create 
         user = User.create(user_params)

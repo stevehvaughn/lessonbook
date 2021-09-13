@@ -1,7 +1,13 @@
-import { useState } from 'react';
+import { useDispatch } from "react-redux"
+import { deleteLesson } from "../../redux/actions/lessonActions"
 
 const SelectedLesson = ({selectedLesson}) => {  
-    console.log(selectedLesson)
+    const dispatch = useDispatch()
+    
+    function handleDeleteLesson(e) {
+        const selectedLesson = parseInt(e.target.id)
+        dispatch(deleteLesson(selectedLesson))
+    }
     
     return (
         <div className='selected-lesson-container'>
@@ -12,11 +18,14 @@ const SelectedLesson = ({selectedLesson}) => {
             <h4>Repertoire: {selectedLesson.repertoire}</h4>
             <h4>Assignment: {selectedLesson.assignment}</h4>
             {selectedLesson.earned_grade 
-            ?   <h4>Grade: {selectedLesson.earned_grade}</h4>
+            ?   <>
+                <h4>Grade: {selectedLesson.earned_grade}</h4><br/>
+                </>
             :   <>
-                <h4>No Grade Assigned</h4><button>Assign Grade</button>
+                <h4>No Grade Assigned</h4><button>Assign Grade</button><br/>
                 </>
             }
+            <button id={selectedLesson.id} onClick={handleDeleteLesson}>Delete Lesson</button>
         </div>
     )
 }

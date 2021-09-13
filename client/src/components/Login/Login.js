@@ -2,6 +2,7 @@ import "./Login.css"
 import { useState } from 'react'
 import { useDispatch } from "react-redux"
 import { loginAction } from "../../redux/actions/userActions"
+import { getUsersStudents } from "../../redux/actions/userActions"
 import LoginErrors from "./LoginErrors"
 
 const Login = () => {
@@ -15,6 +16,7 @@ const Login = () => {
     function handleSubmit(e) {
         e.preventDefault()
         dispatch(loginAction(formData))
+        dispatch(getUsersStudents)
         setFormData({
             username: "", 
             password: ""

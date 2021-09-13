@@ -67,29 +67,13 @@ export function getAllTeachers() {
     }
 }
 
-export function getAllLessons() {
+export function getUsersStudents() {
     return (dispatch) => {
-        return fetch("/lessons")
+        console.log('hey')
+        return fetch('/users-students')
         .then(resp => resp.json())
         .then(data => dispatch({
-            type: "GET_LESSONS",
-            payload: data
-        }))
-    }
-}
-
-export function addLessonToStudent(newLessonData) {
-    return (dispatch) => {
-        return fetch('/lessons', {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(newLessonData)
-            })
-        .then(resp => resp.json())
-        .then(data => dispatch({
-            type: "ADD_LESSON",
+            type: "GET_USERS_STUDENTS",
             payload: data
         }))
     }

@@ -20,6 +20,12 @@ class LessonsController < ApplicationController
         end
     end
 
+    def destroy 
+        lesson = Lesson.find(params[:id])
+        lesson.destroy
+        head :no_content
+    end
+
     private 
 
         def lesson_params
