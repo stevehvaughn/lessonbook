@@ -1,6 +1,8 @@
 import { useState } from 'react';
 
 const SelectedLesson = ({selectedLesson}) => {  
+    console.log(selectedLesson)
+    
     return (
         <div className='selected-lesson-container'>
             <h2 className='teacher-text'>Selected Lesson</h2>

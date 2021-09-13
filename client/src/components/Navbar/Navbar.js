@@ -60,7 +60,7 @@ const Navbar = () => {
                 </li>
                 <li>
                     <Link className="nav-links" to="/create-lesson">
-                        Create Lesson
+                        New Lesson
                     </Link>
                 </li>
                 <li>
