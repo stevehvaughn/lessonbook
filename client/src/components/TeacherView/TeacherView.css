@@ -1,7 +1,7 @@
 .avatar-picture {
 	border-radius: 50%;
 	border: solid;
-	width: 8vw;
+	width: 5vw;
 	background-color: gray;
 }
 
@@ -24,11 +24,11 @@
 }
 
 .students-lessons-container {
-	padding: 1rem;
+	padding: 0.5rem;
 }
 
 .single-lesson {
-	margin: 1rem;
+	margin: 0.5rem;
 	cursor: pointer;
 }
 
@@ -50,4 +50,37 @@
 
 #teacher-header-text {
 	padding-left: 0.5rem;
+}
+
+.hover-text {
+	position: absolute;
+	white-space: nowrap;
+	background: lightgray;
+	border: 1px solid;
+	padding: 0.5em;
+	z-index: 1000;
+	color: black;
+	font-size: 1em;
+}
+
+.show-lessons-button {
+	display: inline-block;
+	padding: 0.3em 1.2em;
+	margin: 1em 0.3em 0.3em 0;
+	border-radius: 2em;
+	box-sizing: border-box;
+	text-decoration: none;
+	text-align: center;
+	transition: all 0.2s;
+}
+
+.show-lessons-button:hover {
+	background-color: grey;
+}
+
+@media all and (max-width: 30em) {
+	.show-lessons-button {
+		display: block;
+		margin: 0.2em auto;
+	}
 }

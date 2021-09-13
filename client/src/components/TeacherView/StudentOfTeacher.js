@@ -3,6 +3,17 @@ import { useState } from 'react'
 
 const StudentOfTeacher = ({first_name, last_name, picture_url, lessons, username, lesson_time, lesson_day, year_in_school, renderFullLesson }) => {
     const [showLessons, setShowLessons] = useState(false)
+    const [isHovering, setIsHovering] = useState(false)
+    const [hoveringID, setHoveringID] = useState("")
+
+    function handleMouseOver(e) {
+        setHoveringID(e.target.id)
+        setIsHovering(true)
+    }
+
+    function handleMouseOut(e) {
+        setIsHovering(false)
+    }
 
     function handleShowLessons() {
         setShowLessons(!showLessons)
@@ -42,18 +53,20 @@ const StudentOfTeacher = ({first_name, last_name, picture_url, lessons, username
     return (
         <div className='single-student-container'>
             <img className='avatar-picture' src={picture_url} alt={last_name}></img>
-            <h3>{first_name} {last_name} - {year_in_school}</h3>
-            <h4>Lesson Time: {capitalizeFirstLetterOfString(lesson_day)} at {lesson_time}</h4>
-            { lessons.length ? <button onClick={handleShowLessons}>{ showLessons ? "Hide Lessons" : "Show Lessons" }</button> : <p>No lessons to display</p> }
+            <h4>{first_name} {last_name} - {year_in_school}</h4>
+            <h5>Lesson Time: {capitalizeFirstLetterOfString(lesson_day)} at {lesson_time}</h5>
+            { lessons.length ? <button className='show-lessons-button' onClick={handleShowLessons}>{ showLessons ? "Hide Lessons" : "Show Lessons" }</button> : <p>No lessons to display</p> }
             { showLessons 
             ? 
                 <div className='students-lessons-container'>
-                    <h5>Click a lesson to see details</h5>
                     <ul className='students-lessons-list'>
                         {lessons.map(lesson => { return (
-                            <li id={lesson.id} key={lesson.id} className='single-lesson' onClick={renderFullLesson}>
+                            <>
+                            <li id={lesson.id} key={lesson.id} className='single-lesson' onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} onClick={renderFullLesson}>
                                 {getDayOfWeek(lesson.date), getFormattedDate(lesson.date)}
                             </li>
+                            {isHovering === true && lesson.id === parseInt(hoveringID) ? <p className='hover-text'>{lesson.objective} - {lesson.assignment}</p> : null}
+                            </>
                         )})}
                     </ul>
                 </div>

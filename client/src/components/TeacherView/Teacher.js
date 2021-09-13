@@ -67,6 +67,8 @@ const Teacher = () => {
                 <h1 id="teacher-header-text" className='teacher-text'>  Professor {teacher.last_name}'s Studio</h1>
             </div>
             <h1 className='teacher-text'>Current Students</h1>
+            <h3>Click Show Lessons to display all the lessons for that student.</h3>
+            <h3>Hover over a lesson to see lesson objective and assignment OR click the lesson to see full details</h3>
             <div className='students-container'>
                 {students.map(student => {return (
                     <StudentOfTeacher 

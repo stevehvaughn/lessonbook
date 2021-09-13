@@ -1,3 +1,5 @@
+import './Lessons.css'
+import '../CreateAccount/CreateAccount.css'
 import { useSelector } from "react-redux"
 import { useState } from "react"
 // import { addLessonToStudent } from "../../redux/actions/lessonActions"
@@ -60,42 +62,44 @@ const CreateLesson = () => {
             }
         })
     }
+
+    console.log(newLessonData)
     
     return (
         <div>
-            <h3>New Lesson</h3>
-                <form onSubmit={handleSubmit}>
-                    <div>
-                        <label htmlFor='date'>Date of Lesson:</label>
-                        <input type='date' name='date' value={newLessonData.date} onChange={handleNewLessonData}></input>
+            <h1>New Lesson</h1>
+                <form className='form-container' onSubmit={handleSubmit}>
+                    <div className='form-div'>
+                        <label className='new-account-label' htmlFor='date'>Date of Lesson:</label>
+                        <input className='new-account-input' type='date' name='date' value={newLessonData.date} onChange={handleNewLessonData}></input>
                     </div>
-                    <div>
-                        <label htmlFor='objective'>Objective:</label>
-                        <input type='text' name='objective' value={newLessonData.objective} onChange={handleNewLessonData}></input>
+                    <div className='form-div'>
+                        <label className='new-account-label' htmlFor='objective'>Objective:</label>
+                        <textarea placeholder='ex: In this lesson the student will have a better understanding of marcato style' className='new-account-input large-input' type='text' name='objective' value={newLessonData.objective} onChange={handleNewLessonData}></textarea>
                     </div>
-                    <div>
-                        <label htmlFor='repertoire'>Repertoire:</label>
-                        <input type='text' name='repertoire' value={newLessonData.repertoire} onChange={handleNewLessonData}></input>
+                    <div className='form-div'>
+                        <label className='new-account-label' htmlFor='repertoire'>Repertoire:</label>
+                        <textarea placeholder='Repertoire used in the lesson to acheive objective, and other materials you think the student may find helpful' className='new-account-input large-input' type='text' name='repertoire' value={newLessonData.repertoire} onChange={handleNewLessonData}></textarea>
                     </div>
-                    <div>
-                        <label htmlFor='assignment'>Assignment:</label>
-                        <input type='text' name='assignment' value={newLessonData.assignment} onChange={handleNewLessonData}></input>
+                    <div className='form-div'>
+                        <label className='new-account-label' htmlFor='assignment'>Assignment:</label>
+                        <textarea placeholder="Materails in this section are assigned for the students' next lesson" className='new-account-input large-input' type='text' name='assignment' value={newLessonData.assignment} onChange={handleNewLessonData}></textarea>
                     </div>
-                    <div>
-                        <label htmlFor='user_id'>Student:</label>
-                        <select id='students' name='user_id' onChange={handleNewLessonData}>
+                    <div className='form-div'>
+                        <label className='new-account-label' htmlFor='user_id'>Student:</label>
+                        <select className='new-account-input' id='students' name='user_id' onChange={handleNewLessonData}>
                             <option defaultValue value="">Please Select a Student</option>
                             {students.map(student => { return (
                                 <option key={student.id} value={student.id}>{student.combined_name}</option>
                                 )})}
                         </select>
                     </div>
-                    <div>
-                        <label htmlFor='earned_grade'>Grade:</label>
-                        <input type='number' name='earned_grade' value={newLessonData.earned_grade} onChange={handleNewLessonData}></input>
+                    <div className='form-div'>
+                        <label className='new-account-label' htmlFor='earned_grade'>Grade:</label>
+                        <input placeholder='Please enter a whole number, optional'className='new-account-input' type='number' name='earned_grade' value={newLessonData.earned_grade} onChange={handleNewLessonData}></input>
                     </div>
-                        <button type='submit'>Complete Lesson</button><br/>
-                </form>
+                </form><br/>
+            <button className='form-button' type='submit'>Complete Lesson</button><br/>
             { success 
                 ? <CreateLessonSuccess />
                 : 
