@@ -50,7 +50,14 @@ const Teacher = () => {
         const clickedLesson = parseInt(e.target.id)
         fetch(`/lessons/${clickedLesson}`)
         .then(resp => resp.json())
-        .then(data => setSelectedLesson(data))
+        .then(data => {
+            setSelectedLesson(data)
+            window.scroll({
+                top: document.body.offsetHeight,
+                left: 0, 
+                behavior: 'smooth',
+        })
+        });
     }
 
     return (

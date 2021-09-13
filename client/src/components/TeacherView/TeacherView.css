@@ -2,6 +2,7 @@
 	border-radius: 50%;
 	border: solid;
 	width: 8vw;
+	background-color: gray;
 }
 
 .single-student-container {
@@ -9,6 +10,7 @@
 	border: solid;
 	padding: 1rem;
 	margin: 1rem;
+	background: #fff;
 }
 
 .students-container {

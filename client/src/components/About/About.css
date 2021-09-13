@@ -4,11 +4,11 @@
 }
 
 .about-header-text {
-	font-size: 10vw;
-	line-height: 75px;
+	font-size: 8vw;
+	line-height: 100%;
 	color: white;
 	position: absolute;
-	top: 15vh;
+	top: 30vw;
 	left: 5vw;
 	text-align: left;
 }

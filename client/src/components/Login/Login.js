@@ -1,4 +1,5 @@
 import "./Login.css"
+import "../CreateAccount/CreateAccount.css"
 import { useState } from 'react'
 import { useDispatch } from "react-redux"
 import { loginAction } from "../../redux/actions/userActions"
@@ -16,7 +17,6 @@ const Login = () => {
     function handleSubmit(e) {
         e.preventDefault()
         dispatch(loginAction(formData))
-        dispatch(getUsersStudents)
         setFormData({
             username: "", 
             password: ""
@@ -31,13 +31,17 @@ const Login = () => {
     
     return (
         <div>
-            <h3>Log in</h3>
+            <h1>Log in</h1>
             <form onSubmit={handleSubmit}>
-                <label htmlFor='username'>Username:</label><br/>
-                <input type='text' name='username' value={formData.username} onChange={handleFormData}></input><br/>
-                <label htmlFor='password'>Password:</label><br/>
-                <input type='password' name='password' value={formData.password} onChange={handleFormData}></input><br/>
-                <button type='submit'>Login</button>
+            <div className='form-div'>
+                <label className='new-account-label' htmlFor='username'>Username:</label>
+                <input className='new-account-input' type='text' name='username' value={formData.username} onChange={handleFormData}></input>
+            </div>
+            <div className='form-div'>
+                <label className='new-account-label' htmlFor='password'>Password:</label>
+                <input className='new-account-input' type='password' name='password' value={formData.password} onChange={handleFormData}></input>
+            </div><br/>
+                <button className='form-button' type='submit'>Login</button>
                 <LoginErrors />
             </form>
         </div>

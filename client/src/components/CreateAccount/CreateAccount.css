@@ -7,3 +7,55 @@
 	color: blue;
 	padding: 2rem;
 }
+
+.form-div {
+	display: grid;
+	grid-template-columns: max-content max-content max-content;
+	grid-gap: 5px;
+}
+
+.form-container {
+	width: 50vw;
+}
+
+.form-button {
+	display: inline-block;
+	padding: 0.3em 1.2em;
+	margin: 0 0.3em 0.3em 0;
+	border-radius: 2em;
+	box-sizing: border-box;
+	text-decoration: none;
+	text-align: center;
+	transition: all 0.2s;
+}
+
+.form-button:hover {
+	background-color: grey;
+}
+
+@media all and (max-width: 30em) {
+	.form-button {
+		display: block;
+		margin: 0.2em auto;
+	}
+
+	.form-div {
+		grid-template-columns: max-content max-content;
+	}
+}
+
+.new-account-label {
+	display: inline-block;
+	padding-top: 5px;
+	text-align: right;
+	width: 45vw;
+}
+
+.new-account-input {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: 20px;
+	width: 20vw;
+}

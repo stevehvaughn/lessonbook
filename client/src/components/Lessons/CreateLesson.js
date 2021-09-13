@@ -64,26 +64,38 @@ const CreateLesson = () => {
     return (
         <div>
             <h3>New Lesson</h3>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor='date'>Date of Lesson:</label><br/>
-                <input type='date' name='date' value={newLessonData.date} onChange={handleNewLessonData}></input><br/>
-                <label htmlFor='objective'>Objective:</label><br/>
-                <input type='text' name='objective' value={newLessonData.objective} onChange={handleNewLessonData}></input><br/>
-                <label htmlFor='repertoire'>Repertoire:</label><br/>
-                <input type='text' name='repertoire' value={newLessonData.repertoire} onChange={handleNewLessonData}></input><br/>
-                <label htmlFor='assignment'>Assignment:</label><br/>
-                <input type='text' name='assignment' value={newLessonData.assignment} onChange={handleNewLessonData}></input><br/>
-                <label htmlFor='user_id'>Student:</label><br/>
-                <select id='students' name='user_id' onChange={handleNewLessonData}>
-                    <option defaultValue value="">Please Select a Student</option>
-                    {students.map(student => { return (
-                        <option key={student.id} value={student.id}>{student.combined_name}</option>
-                    )})}
-                </select><br/>
-                <label htmlFor='earned_grade'>Grade:</label><br/>
-                <input type='number' name='earned_grade' value={newLessonData.earned_grade} onChange={handleNewLessonData}></input><br/>
-                <button type='submit'>Complete Lesson</button><br/>
-            </form>
+                <form onSubmit={handleSubmit}>
+                    <div>
+                        <label htmlFor='date'>Date of Lesson:</label>
+                        <input type='date' name='date' value={newLessonData.date} onChange={handleNewLessonData}></input>
+                    </div>
+                    <div>
+                        <label htmlFor='objective'>Objective:</label>
+                        <input type='text' name='objective' value={newLessonData.objective} onChange={handleNewLessonData}></input>
+                    </div>
+                    <div>
+                        <label htmlFor='repertoire'>Repertoire:</label>
+                        <input type='text' name='repertoire' value={newLessonData.repertoire} onChange={handleNewLessonData}></input>
+                    </div>
+                    <div>
+                        <label htmlFor='assignment'>Assignment:</label>
+                        <input type='text' name='assignment' value={newLessonData.assignment} onChange={handleNewLessonData}></input>
+                    </div>
+                    <div>
+                        <label htmlFor='user_id'>Student:</label>
+                        <select id='students' name='user_id' onChange={handleNewLessonData}>
+                            <option defaultValue value="">Please Select a Student</option>
+                            {students.map(student => { return (
+                                <option key={student.id} value={student.id}>{student.combined_name}</option>
+                                )})}
+                        </select>
+                    </div>
+                    <div>
+                        <label htmlFor='earned_grade'>Grade:</label>
+                        <input type='number' name='earned_grade' value={newLessonData.earned_grade} onChange={handleNewLessonData}></input>
+                    </div>
+                        <button type='submit'>Complete Lesson</button><br/>
+                </form>
             { success 
                 ? <CreateLessonSuccess />
                 : 

@@ -96,78 +96,100 @@ const CreateAccount = () => {
     return (
         <div>
             <h1>Create New Account</h1>
-            <form onSubmit={handleNewUserSubmit}>
-                <label htmlFor='first_name'>First Name:</label><br/>
-                <input type='text' name='first_name' value={newUserData.first_name} onChange={handleNewUserData}></input><br/>
-                <label htmlFor='last_name'>Last Name:</label><br/>
-                <input type='text' name='last_name' value={newUserData.last_name} onChange={handleNewUserData}></input><br/>
-                <label htmlFor='email'>Email:</label><br/>
-                <input type='text' name='email' value={newUserData.email} onChange={handleNewUserData}></input><br/>
-                <label htmlFor='username'>Username:</label><br/>
-                <input type='text' name='username' value={newUserData.username} onChange={handleNewUserData}></input><br/>
-                <label htmlFor='password'>Password:</label><br/>
-                <input type='password' name='password' value={newUserData.password} onChange={handleNewUserData}></input><br/>
-                <label htmlFor='picture_url'>Upload Profile Picture:</label><br/>
-                <input type='file' name='picture_url' onChange={handleFileSelected}></input><br/>
-                <button type='submit' onClick={handleFileUpload}>Upload</button>
-                <label htmlFor='is_teacher'>Are you a Student or Teacher?</label><br/>
-                <select id='students' name='is_teacher' onChange={handleSetIsTeacher}>
-                    <option defaultValue value="true">Choose</option>
-                    <option value="true">Teacher</option>
-                    <option value="">Student</option>
-                </select><br/><br/>
+            <form className='form-container' onSubmit={handleNewUserSubmit}>
+                <div className='form-div'>
+                    <label className='new-account-label' htmlFor='first_name'>First Name:</label>
+                    <input className='new-account-input' type='text' name='first_name' value={newUserData.first_name} onChange={handleNewUserData}></input>
+                </div>
+                <div className='form-div'>
+                    <label className='new-account-label' htmlFor='last_name'>Last Name:</label>
+                    <input className='new-account-input' type='text' name='last_name' value={newUserData.last_name} onChange={handleNewUserData}></input>
+                </div>
+                <div className='form-div'>
+                    <label className='new-account-label' htmlFor='email'>Email:</label>
+                    <input className='new-account-input' type='text' name='email' value={newUserData.email} onChange={handleNewUserData}></input>
+                </div>
+                <div className='form-div'>
+                    <label className='new-account-label' htmlFor='username'>Username:</label>
+                    <input className='new-account-input' type='text' name='username' value={newUserData.username} onChange={handleNewUserData}></input>
+                </div>
+                <div className='form-div'>
+                    <label className='new-account-label' htmlFor='password'>Password:</label>
+                    <input className='new-account-input' type='password' name='password' value={newUserData.password} onChange={handleNewUserData}></input>
+                </div>
+                <div className='form-div'>
+                    <label className='new-account-label' htmlFor='picture_url'>Upload Profile Picture:</label>
+                    <input className='new-account-input' type='file' name='picture_url' onChange={handleFileSelected}></input>
+                    <button className='form-button' type='submit' onClick={handleFileUpload}>Upload</button>
+                </div>
+                <div className='form-div'>
+                    <label className='new-account-label' htmlFor='is_teacher'>Are you a Student or Teacher?</label>
+                    <select className='new-account-input' id='students' name='is_teacher' onChange={handleSetIsTeacher}>
+                        <option defaultValue value="true">Choose</option>
+                        <option value="true">Teacher</option>
+                        <option value="">Student</option>
+                    </select>
+                </div>
                 { isTeacher 
                 ?   null
                 :   <>
-                    <h3>What Year in School are you?</h3>
-                    <select id='year' name='year_in_school' onChange={handleNewUserData}><br/>
-                        <option defaultValue value="">Pick One</option>
-                        {yearInSchoolOptions.map(yearInSchool => { return (
-                            <option value={yearInSchool}>{yearInSchool}</option>
-                        )})}
-                    </select><br/>
-                    <h3>Please Select Your Teacher</h3>
-                    <select id='teachers' name='teacher_id' onChange={handleNewUserData}><br/>
-                        <option defaultValue value="">Choose a Teacher</option>
-                        {teachers.map(teacher => { return (
-                            <option value={teacher.id}>{teacher.combined_name}</option>
-                        )})}
-                    </select><br/>
-                    <h3>What Day is your Lesson?</h3>
-                    <select id='day' name='lesson_day' onChange={handleNewUserData}><br/>
-                        <option defaultValue value="">Choose a Day</option>
-                        <option value='monday'>Monday</option>
-                        <option value='tuesday'>Tuesday</option>
-                        <option value='wednesday'>Wednesday</option>
-                        <option value='thursday'>Thursday</option>
-                        <option value='friday'>Friday</option>
-                    </select><br/>
-                    <h3>What Time is your Lesson?</h3>
-                    <select id='time' name='lesson_time' onChange={handleNewUserData}><br/>
-                        <option defaultValue value="">Choose a Time</option>
-                        {lessonTimes.map(time => { return (
-                            <option value={time}>{time}</option>
-                        )})}
-                    </select><br/>
+                    <div className='form-div'>
+                        <label className='new-account-label' htmlFor='year_in_school'>What Year in School are you?</label>
+                        <select className='new-account-input' id='year' name='year_in_school' onChange={handleNewUserData}>
+                            <option defaultValue value="">Choose a Year</option>
+                            {yearInSchoolOptions.map(yearInSchool => { return (
+                                <option value={yearInSchool}>{yearInSchool}</option>
+                            )})}
+                        </select>
+                    </div>
+                    <div className='form-div'>
+                        <label className='new-account-label' htmlFor='teacher_id'>Please Select Your Teacher</label>
+                        <select className='new-account-input' id='teachers' name='teacher_id' onChange={handleNewUserData}>
+                            <option defaultValue value="">Choose a Teacher</option>
+                            {teachers.map(teacher => { return (
+                                <option value={teacher.id}>{teacher.combined_name}</option>
+                            )})}
+                        </select>
+                    </div>
+                    <div className='form-div'>
+                        <label className='new-account-label' htmlFor='lesson_day'>What Day is your Lesson?</label>
+                        <select className='new-account-input' id='day' name='lesson_day' onChange={handleNewUserData}>
+                            <option defaultValue value="">Choose a Day</option>
+                            <option value='monday'>Monday</option>
+                            <option value='tuesday'>Tuesday</option>
+                            <option value='wednesday'>Wednesday</option>
+                            <option value='thursday'>Thursday</option>
+                            <option value='friday'>Friday</option>
+                        </select>
+                    </div>
+                    <div className='form-div'>
+                        <label className='new-account-label' htmlFor='lesson_time'>What Time is your Lesson?</label>
+                        <select className='new-account-input' id='time' name='lesson_time' onChange={handleNewUserData}>
+                            <option defaultValue value="">Choose a Time</option>
+                            {lessonTimes.map(time => { return (
+                                <option value={time}>{time}</option>
+                            )})}
+                        </select>
+                    </div>
                     </>
                 }
-                <button type='submit'>Create Account</button><br/>
-                <Link to="/" >
-                    <button>Already Have an Account?</button>
-                </Link>
-                { success 
-                ? <CreateAccountSuccess />
-                : 
-                <>
-                {errors.map(error => { return (
-                    <CreateAccountErrors
-                        key = {error}
-                        error = {error}
-                    />
-                )})}
-                </>
-                }
-            </form>
+                </form><br/>
+            <button className='form-button' type='submit'>Create Account</button>
+            <Link to="/" >
+                <button className='form-button'>Already Have an Account?</button>
+            </Link>
+            { success 
+            ? <CreateAccountSuccess />
+            : 
+            <>
+            {errors.map(error => { return (
+                <CreateAccountErrors
+                    key = {error}
+                    error = {error}
+                />
+            )})}
+            </>
+            }
         </div>
     )
 }
