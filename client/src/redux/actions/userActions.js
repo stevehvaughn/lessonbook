@@ -67,6 +67,17 @@ export function getAllTeachers() {
     }
 }
 
+export function getAllLessons() {
+    return (dispatch) => {
+        return fetch("/lessons")
+        .then(resp => resp.json())
+        .then(data => dispatch({
+            type: "GET_LESSONS",
+            payload: data
+        }))
+    }
+}
+
 export function addLessonToStudent(newLessonData) {
     return (dispatch) => {
         return fetch('/lessons', {

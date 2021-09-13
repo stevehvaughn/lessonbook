@@ -5,8 +5,9 @@ import StudentOfTeacher from './StudentOfTeacher'
 import './TeacherView.css'
 
 const Teacher = () => {
-    const students = useSelector(state => state.user.userInfo.students)
-    const teacher = useSelector(state => state.user.userInfo)
+
+    const teacher = useSelector(state => state.user)
+    const students = useSelector(state => state.user.students)
 
     const [selectedLesson, setSelectedLesson] = useState(null)
 

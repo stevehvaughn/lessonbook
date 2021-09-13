@@ -7,7 +7,7 @@ const Home = () => {
  
     return (
         <div>
-            { user.userInfo.teacher
+            { user.teacher
             ? <Student />
             : <Teacher />
             }

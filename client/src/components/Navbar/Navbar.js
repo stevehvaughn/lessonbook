@@ -50,7 +50,7 @@ const Navbar = () => {
                 </li>
                 </>
             )
-        } else if (user.isLoggedIn && user.userInfo.teacher === null) {
+        } else if (user.isLoggedIn && user.teacher === null) {
             return (
                 <>
                 <li>
