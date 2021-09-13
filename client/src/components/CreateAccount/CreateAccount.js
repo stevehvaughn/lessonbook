@@ -99,9 +99,7 @@ const CreateAccount = () => {
             })
         }
     }
-
-    console.log(newUserData)
-   
+  
     return (
         <div>
             <h1>Create New Account</h1>

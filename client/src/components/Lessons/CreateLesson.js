@@ -1,5 +1,6 @@
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 import { useState } from "react"
+import { addLessonToStudent } from "../../redux/actions/userActions"
 import CreateLessonSuccess from "./CreateLessonSuccess"
 import CreateAccountErrors from "../CreateAccount/CreateAccountErrors"
 
@@ -14,6 +15,7 @@ const CreateLesson = () => {
     })
     const [errors, setErrors] = useState([])
     const [success, setSuccess] = useState(false)
+    const dispatch = useDispatch()
 
     console.log(new Date().toISOString().slice(0, 10))
 
@@ -33,29 +35,30 @@ const CreateLesson = () => {
 
     function handleSubmit(e) {
         e.preventDefault()
-        console.log(newLessonData)
-        fetch('/lessons', {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(newLessonData)
-        })
-        .then(resp => {
-            if (resp.ok) {
-                resp.json().then(setSuccess(true))
-                setNewLessonData({...newLessonData, 
-                    objective: "",
-                    repertoire: "",
-                    assignment: "",
-                    date: new Date().toISOString().slice(0, 10),
-                    user_id: "",
-                    earned_grade: ""
-                })
-            } else {
-                resp.json().then(err => setErrors(err.errors))
-            }
-        })
+        dispatch(addLessonToStudent(newLessonData))
+        // console.log(newLessonData)
+        // fetch('/lessons', {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "application/json"
+        //     },
+        //     body: JSON.stringify(newLessonData)
+        // })
+        // .then(resp => {
+        //     if (resp.ok) {
+        //         resp.json().then(setSuccess(true))
+        //         setNewLessonData({...newLessonData, 
+        //             objective: "",
+        //             repertoire: "",
+        //             assignment: "",
+        //             date: new Date().toISOString().slice(0, 10),
+        //             user_id: "",
+        //             earned_grade: ""
+        //         })
+        //     } else {
+        //         resp.json().then(err => setErrors(err.errors))
+        //     }
+        // })
     }
     
     return (

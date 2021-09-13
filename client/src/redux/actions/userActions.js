@@ -66,3 +66,21 @@ export function getAllTeachers() {
         }))
     }
 }
+
+export function addLessonToStudent(newLessonData) {
+    return (dispatch) => {
+        return fetch('/lessons', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(newLessonData)
+            })
+        .then(resp => resp.json())
+        .then(data => dispatch({
+            type: "ADD_LESSON",
+            payload: data
+        }))
+    }
+}
+

@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux'
-import { useState } from 'react'
-import StudentOfTeacher from './StudentOfTeacher'
+import { useState, useEffect } from 'react'
 import SelectedLesson from './SelectedLesson'
+import StudentOfTeacher from './StudentOfTeacher'
 import './TeacherView.css'
 
 const Teacher = () => {
@@ -38,6 +38,13 @@ const Teacher = () => {
     //     }
     // })
 
+    // useEffect(() => {
+    //     effect
+    //     return () => {
+    //         cleanup
+    //     }
+    // }, [input])
+    
     function renderFullLesson(e) {
         const clickedLesson = parseInt(e.target.id)
         fetch(`/lessons/${clickedLesson}`)
