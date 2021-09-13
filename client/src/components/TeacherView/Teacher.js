@@ -64,11 +64,11 @@ const Teacher = () => {
         <div>
             <div className='teacher-header'>
                 <img className="avatar-picture" src={teacher.picture_url} alt="teacher_picture"></img>
-                <h1 id="teacher-header-text" className='teacher-text'>  Professor {teacher.last_name}'s Studio</h1>
+                <h1 id="teacher-header-text">  Professor {teacher.last_name}'s Studio</h1>
             </div>
-            <h1 className='teacher-text'>Current Students</h1>
-            <h3>Click Show Lessons to display all the lessons for that student.</h3>
-            <h3>Hover over a lesson to see lesson objective and assignment OR click the lesson to see full details</h3>
+            <h2>Current Students</h2>
+            <p>Click Show Lessons to display all the lessons for that student.</p>
+            <p>Hover over a lesson to see lesson objective and assignment OR click the lesson to see full details</p>
             <div className='students-container'>
                 {students.map(student => {return (
                     <StudentOfTeacher 

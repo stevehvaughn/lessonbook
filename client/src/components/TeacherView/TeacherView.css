@@ -1,7 +1,7 @@
 .avatar-picture {
 	border-radius: 50%;
 	border: solid;
-	width: 5vw;
+	width: 175px;
 	background-color: gray;
 }
 
@@ -44,10 +44,6 @@
 	padding: 1rem;
 }
 
-.teacher-text {
-	font-size: 3vw;
-}
-
 #teacher-header-text {
 	padding-left: 0.5rem;
 }
@@ -66,7 +62,7 @@
 .show-lessons-button {
 	display: inline-block;
 	padding: 0.3em 1.2em;
-	margin: 1em 0.3em 0.3em 0;
+	margin: 0 0.3em 0.3em 0;
 	border-radius: 2em;
 	box-sizing: border-box;
 	text-decoration: none;
@@ -75,12 +71,34 @@
 }
 
 .show-lessons-button:hover {
-	background-color: grey;
+	background-color: lightgrey;
 }
 
-@media all and (max-width: 30em) {
+@media screen and (min-width: 300px) {
+	.students-container {
+		grid-template-columns: auto;
+	}
+}
+
+@media screen and (min-width: 600px) {
 	.show-lessons-button {
 		display: block;
 		margin: 0.2em auto;
+	}
+
+	.students-container {
+		grid-template-columns: auto auto;
+	}
+}
+
+@media screen and (min-width: 900px) {
+	.students-container {
+		grid-template-columns: auto auto auto;
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	.students-container {
+		grid-template-columns: auto auto auto auto;
 	}
 }

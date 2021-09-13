@@ -54,7 +54,7 @@ const StudentOfTeacher = ({first_name, last_name, picture_url, lessons, username
         <div className='single-student-container'>
             <img className='avatar-picture' src={picture_url} alt={last_name}></img>
             <h4>{first_name} {last_name} - {year_in_school}</h4>
-            <h5>Lesson Time: {capitalizeFirstLetterOfString(lesson_day)} at {lesson_time}</h5>
+            <h5>Lesson Time: {capitalizeFirstLetterOfString(lesson_day)} at {lesson_time}</h5><br/>
             { lessons.length ? <button className='show-lessons-button' onClick={handleShowLessons}>{ showLessons ? "Hide Lessons" : "Show Lessons" }</button> : <p>No lessons to display</p> }
             { showLessons 
             ? 

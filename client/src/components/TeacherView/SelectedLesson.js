@@ -11,18 +11,18 @@ const SelectedLesson = ({selectedLesson}) => {
     
     return (
         <div className='selected-lesson-container'>
-            <h2 className='teacher-text'>Selected Lesson</h2>
-            <h4>Student: {selectedLesson.student.combined_name}</h4>
-            <h4>Date of Lesson: {selectedLesson.date}</h4>
-            <h4>Lesson Objective: {selectedLesson.objective}</h4>
-            <h4>Repertoire: {selectedLesson.repertoire}</h4>
-            <h4>Assignment: {selectedLesson.assignment}</h4>
+            <h1 className='teacher-text'>Selected Lesson</h1>
+            <h3>Student: {selectedLesson.student.combined_name}</h3>
+            <h3>Date of Lesson: {selectedLesson.date}</h3>
+            <h3>Lesson Objective: {selectedLesson.objective}</h3>
+            <h3>Repertoire: {selectedLesson.repertoire}</h3>
+            <h3>Assignment: {selectedLesson.assignment}</h3>
             {selectedLesson.earned_grade 
             ?   <>
-                <h4>Grade: {selectedLesson.earned_grade}</h4><br/>
+                <h3>Grade: {selectedLesson.earned_grade}</h3><br/>
                 </>
             :   <>
-                <h4>No Grade Assigned</h4><button>Assign Grade</button><br/>
+                <h3>No Grade Assigned</h3><button>Assign Grade</button><br/>
                 </>
             }
             <button id={selectedLesson.id} onClick={handleDeleteLesson}>Delete Lesson</button>

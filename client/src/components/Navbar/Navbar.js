@@ -1,5 +1,5 @@
 import { Button } from '../Button'
-import { toggleActive } from "../../redux/actions/navbarActions"
+import { toggleActive, toggleOn, toggleOff } from "../../redux/actions/navbarActions"
 import { logoutAction } from "../../redux/actions/userActions"
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
@@ -11,6 +11,11 @@ const Navbar = () => {
 
     function handleClick() {
        dispatch(toggleActive())
+    }
+
+    function closeNavMenu() {
+        dispatch(toggleOff())
+        console.log('hey')
     }
 
     function handleLogOut() {
@@ -25,27 +30,27 @@ const Navbar = () => {
             return (
                 <>
                 <li>
-                    <Link className="nav-links" to="/about">
+                    <Link onClick={closeNavMenu} className="nav-links" to="/about">
                         About
                     </Link>
                 </li>
                 <li>
-                    <Link className="nav-links" to="/students">
+                    <Link onClick={closeNavMenu} className="nav-links" to="/students">
                         Students
                     </Link>
                 </li>
                 <li>
-                    <Link className="nav-links" to="/teachers">
+                    <Link onClick={closeNavMenu} className="nav-links" to="/teachers">
                         Teachers
                     </Link>
                 </li>
                 <li>
-                    <Link className="nav-links" to="/contact">
+                    <Link onClick={closeNavMenu} className="nav-links" to="/contact">
                         Contact Us
                     </Link>
                 </li> 
                 <li>
-                    <Link className="nav-links-mobile" to="/signup">
+                    <Link onClick={closeNavMenu} className="nav-links-mobile" to="/signup">
                         Sign Up
                     </Link>
                 </li>
@@ -55,27 +60,27 @@ const Navbar = () => {
             return (
                 <>
                 <li>
-                    <Link className="nav-links" to="/">
+                    <Link onClick={closeNavMenu} className="nav-links" to="/">
                         Home
                     </Link>
                 </li>
                 <li>
-                    <Link className="nav-links" to="/create-lesson">
+                    <Link onClick={closeNavMenu} className="nav-links" to="/create-lesson">
                         New Lesson
                     </Link>
                 </li>
                 <li>
-                    <Link className="nav-links" to="/grades">
+                    <Link onClick={closeNavMenu} className="nav-links" to="/grades">
                         Grades
                     </Link>
                 </li>
                 <li>
-                    <Link className="nav-links" to="/studio">
+                    <Link onClick={closeNavMenu} className="nav-links" to="/studio">
                         Studio Info
                     </Link>
                 </li>
                 <li>
-                    <Link className="nav-links-mobile" to="/" onClick={() => handleLogOut()}>
+                    <Link onClick={closeNavMenu} className="nav-links-mobile" to="/" onClick={() => { handleLogOut(); closeNavMenu(); }}>
                         Log Out
                     </Link>
                 </li>
@@ -85,27 +90,27 @@ const Navbar = () => {
             return (
                 <>
                 <li>
-                    <Link className="nav-links" to="/">
+                    <Link onClick={closeNavMenu} className="nav-links" to="/">
                         Home
                     </Link>
                 </li>
                 <li>
-                    <Link className="nav-links" to="/practice">
+                    <Link onClick={closeNavMenu} className="nav-links" to="/practice">
                         Practice Journal
                     </Link>
                 </li>
                 <li>
-                    <Link className="nav-links" to="/grades">
+                    <Link onClick={closeNavMenu} className="nav-links" to="/grades">
                         Grades
                     </Link>
                 </li>
                 <li>
-                    <Link className="nav-links" to="/past-lessons">
+                    <Link onClick={closeNavMenu} className="nav-links" to="/past-lessons">
                         Past Lessons
                     </Link>
                 </li>
                 <li>
-                    <Link className="nav-links-mobile" to="/" onClick={() => handleLogOut()}>
+                    <Link className="nav-links-mobile" to="/" onClick={() => { handleLogOut(); closeNavMenu(); }}>
                         Log Out
                     </Link>
                 </li>
