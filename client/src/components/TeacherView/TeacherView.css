@@ -50,13 +50,12 @@
 
 .hover-text {
 	position: absolute;
-	white-space: nowrap;
 	background: lightgray;
 	border: 1px solid;
-	padding: 0.5em;
+	padding: 1em;
 	z-index: 1000;
 	color: black;
-	font-size: 1em;
+	font-size: 0.8em;
 }
 
 .show-lessons-button {

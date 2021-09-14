@@ -16,7 +16,8 @@
 .about-div {
 	border: solid;
 	padding: 1rem;
-	margin: 1rem;
+	margin: 3rem;
+	background: #fff;
 }
 
 .about-text {
