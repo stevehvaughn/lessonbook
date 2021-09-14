@@ -22,7 +22,3 @@ body::after {
 	position: fixed;
 	z-index: -1;
 }
-
-body {
-	font-size: calc(0.75em + 1vmin);
-}

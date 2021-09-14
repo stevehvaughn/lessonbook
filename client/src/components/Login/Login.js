@@ -29,7 +29,7 @@ const Login = () => {
     }
     
     return (
-        <div>
+        <div className='login-container'>
             <h1>Log in</h1>
             <form onSubmit={handleSubmit}>
             <div className='form-div'>
@@ -40,7 +40,7 @@ const Login = () => {
                 <label className='new-account-label' htmlFor='password'>Password:</label>
                 <input className='new-account-input' type='password' name='password' value={formData.password} onChange={handleFormData}></input>
             </div><br/>
-                <button className='form-button' type='submit'>Login</button>
+                <button id='login-button' className='form-button' type='submit'>Login</button>
             </form>
            <LoginErrors />
         </div>
