@@ -21,8 +21,7 @@ const CreateLesson = () => {
     const [errors, setErrors] = useState([])
     const [success, setSuccess] = useState(false)
 
-    console.log(new Date().toISOString().slice(0, 10))
-
+    console.log(newLessonData)
 
     function handleNewLessonData(e) {
         setNewLessonData({...newLessonData,
@@ -58,13 +57,15 @@ const CreateLesson = () => {
                     earned_grade: ""
                 })
             } else {
-                resp.json().then(err => setErrors(err.errors))
+                resp.json().then(err => {
+                    console.log(err)
+                    setErrors(err.errors)
+                    setSuccess(false)
+                })
             }
         })
     }
-
-    console.log(newLessonData)
-    
+ 
     return (
         <div>
             <h1>New Lesson</h1>
@@ -98,8 +99,8 @@ const CreateLesson = () => {
                         <label className='new-account-label' htmlFor='earned_grade'>Grade:</label>
                         <input placeholder='Please enter a whole number, optional'className='new-account-input' type='number' name='earned_grade' value={newLessonData.earned_grade} onChange={handleNewLessonData}></input>
                     </div>
-                </form><br/>
-            <button className='form-button' type='submit'>Complete Lesson</button><br/>
+                <button className='complete-lesson' type='submit'>Complete Lesson</button><br/>
+            </form><br/>
             { success 
                 ? <CreateLessonSuccess />
                 : 

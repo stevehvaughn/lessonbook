@@ -1,4 +1,21 @@
 .large-input {
-	height: 5vh;
-	text-align: left;
+	height: 10vh;
+}
+
+.complete-lesson {
+	display: inline-block;
+	padding: 0.3em 1.2em;
+	margin: 0 0.3em 0.3em 0;
+	border-radius: 2em;
+	box-sizing: border-box;
+	text-decoration: none;
+	text-align: center;
+	transition: all 0.2s;
+	margin-left: 42vw;
+	width: 150px;
+	white-space: nowrap;
+}
+
+.complete-lesson:hover {
+	background-color: grey;
 }

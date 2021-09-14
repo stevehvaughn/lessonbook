@@ -80,7 +80,7 @@ const Navbar = () => {
                     </Link>
                 </li>
                 <li>
-                    <Link onClick={closeNavMenu} className="nav-links-mobile" to="/" onClick={() => { handleLogOut(); closeNavMenu(); }}>
+                    <Link className="nav-links-mobile" to="/" onClick={() => { handleLogOut(); closeNavMenu(); }}>
                         Log Out
                     </Link>
                 </li>

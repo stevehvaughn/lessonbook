@@ -10,8 +10,9 @@
 
 .form-div {
 	display: grid;
-	grid-template-columns: max-content max-content max-content;
-	grid-gap: 5px;
+	grid-template-columns: max-content 40vw max-content;
+	grid-gap: 10px;
+	padding: 5px;
 }
 
 .form-container {
@@ -33,14 +34,22 @@
 	background-color: grey;
 }
 
-@media all and (max-width: 30em) {
-	.form-button {
-		display: block;
-		margin: 0.2em auto;
+@media all and (max-width: 650px) {
+	.form-div {
+		grid-template-columns: max-content 40vw;
 	}
 
-	.form-div {
-		grid-template-columns: max-content max-content;
+	#upload-pic-div {
+		display: block;
+		margin-left: 30vw;
+	}
+
+	#upload-label {
+		text-align: left;
+	}
+
+	#upload-button {
+		margin-left: 15vw;
 	}
 }
 
@@ -56,6 +65,6 @@
 	margin-bottom: 5px;
 	display: inline-block;
 	vertical-align: middle;
-	margin-left: 20px;
-	width: 25vw;
+	text-align: left;
+	font-size: 1em;
 }

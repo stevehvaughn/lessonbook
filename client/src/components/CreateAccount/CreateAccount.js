@@ -117,10 +117,10 @@ const CreateAccount = () => {
                     <label className='new-account-label' htmlFor='password'>Password:</label>
                     <input className='new-account-input' type='password' name='password' value={newUserData.password} onChange={handleNewUserData}></input>
                 </div>
-                <div className='form-div'>
-                    <label className='new-account-label' htmlFor='picture_url'>Upload Profile Picture:</label>
+                <div id='upload-pic-div' className='form-div'>
+                    <label id='upload-label'className='new-account-label' htmlFor='picture_url'>Upload Profile Picture:</label>
                     <input className='new-account-input' type='file' name='picture_url' onChange={handleFileSelected}></input>
-                    <button className='form-button' type='submit' onClick={handleFileUpload}>Upload</button>
+                    <button id='upload-button' className='form-button' type='submit' onClick={handleFileUpload}>Upload</button>
                 </div>
                 <div className='form-div'>
                     <label className='new-account-label' htmlFor='is_teacher'>Are you a Student or Teacher?</label>
