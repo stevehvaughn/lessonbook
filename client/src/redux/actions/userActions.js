@@ -23,7 +23,8 @@ export function loginAction(formData) {
     }
 }
 
-export function loginPersist() {
+export function loginPersist(setIsLoading) {
+    setIsLoading(true)
     return (dispatch) => {
         return fetch("/me").then(resp => {
             if (resp.ok) {
@@ -31,6 +32,7 @@ export function loginPersist() {
                     type: "LOGIN_USER",
                     payload: data
                 }))
+                .then(setIsLoading(false))
             } else {
                 resp.json().then(err => dispatch({
                     type: "LOGIN_ERROR",

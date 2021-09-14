@@ -10,20 +10,19 @@ import { Switch, Route } from 'react-router-dom'
 import CreateLesson from "./components/Lessons/CreateLesson";
 
 const App = () => {
-  const dispatch = useDispatch()
   const user = useSelector(state => state.user)
-
   const [isLoading, setIsLoading] = useState(false)
+  
+  const dispatch = useDispatch()
 
   useEffect(() => {
     setIsLoading(true)
-    dispatch(loginPersist())
-    setIsLoading(false)
+    dispatch(loginPersist(setIsLoading))
   }, [dispatch])
  
   if (isLoading === true) {
     return (
-      <h1>Page is Loading</h1>
+      <h1></h1>
     )
   } else {
     return (
