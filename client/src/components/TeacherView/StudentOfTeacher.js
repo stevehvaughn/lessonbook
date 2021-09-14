@@ -1,10 +1,14 @@
 import './TeacherView.css'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useSelector } from 'react-redux'
 
-const StudentOfTeacher = ({first_name, last_name, picture_url, lessons, username, lesson_time, lesson_day, year_in_school, renderFullLesson }) => {
+const StudentOfTeacher = ({first_name, last_name, picture_url, id, students, username, lesson_time, lesson_day, year_in_school, renderFullLesson }) => {
     const [showLessons, setShowLessons] = useState(false)
     const [isHovering, setIsHovering] = useState(false)
     const [hoveringID, setHoveringID] = useState("")
+
+    const currentStudent = students.filter(student => student.id === id)
+    let lessons = currentStudent[0].lessons
 
     function handleMouseOver(e) {
         setHoveringID(e.target.id)

@@ -18,6 +18,7 @@ const CreateAccount = () => {
     // const [fileAsUrl, setFileAsUrl] = useState("")
     const [errors, setErrors] = useState([])
     const [success, setSuccess] = useState(false)
+    const [fileUploadSuccess, setFileUploadSuccess] = useState(false)
     const teachers = useSelector(state => state.teachers)
     const lessonTimes = ['08:00 am', '09:00 am', '10:00 am', '11:00 am', '12:00 pm', '01:00 pm', '02:00 pm', '03:00 pm', '04:00 pm', '05:00 pm']
     const yearInSchoolOptions = ["Freshman", "Sophomore", "Junior", "Senior", "1st Year Masters", "2nd Year Masters", "1st Year Doctorate", "2nd Year Doctorate", "3rd Year Doctorate", "4th+ Year Doctorate"]
@@ -69,6 +70,7 @@ const CreateAccount = () => {
 
     function handleFileSelected(e) {
        setSelectedFile(e.target.files[0])
+       setFileUploadSuccess(false)
     }
 
     function handleFileUpload(e) {
@@ -88,6 +90,7 @@ const CreateAccount = () => {
                         picture_url: fireBaseUrl
                     })
                     setErrors([])
+                    setFileUploadSuccess(true)
                 })
             })
         }
@@ -122,6 +125,7 @@ const CreateAccount = () => {
                     <input className='new-account-input' type='file' name='picture_url' onChange={handleFileSelected}></input>
                     <button id='upload-button' className='form-button' type='submit' onClick={handleFileUpload}>Upload</button>
                 </div>
+                { fileUploadSuccess && <h3>File Uploaded Successfully</h3>}
                 <div className='form-div'>
                     <label className='new-account-label' htmlFor='is_teacher'>Are you a Student or Teacher?</label>
                     <select className='new-account-input' id='students' name='is_teacher' onChange={handleSetIsTeacher}>

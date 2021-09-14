@@ -12,8 +12,9 @@ class UsersController < ApplicationController
     end
 
     def users_students
-        users_students = self.students
-        render json: users_students
+        user = User.find_by(id: session[:user_id])
+        students = user.students
+        render json: students
     end
     
     def create 
@@ -31,7 +32,7 @@ class UsersController < ApplicationController
         if user
             render json: user, status: :created
         else
-            render json: { error: ["Not Authorized"]}, status: :unauthorized
+            render json: {errors: []}, status: :unauthorized
         end
     end
 

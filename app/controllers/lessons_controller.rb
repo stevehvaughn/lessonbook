@@ -1,5 +1,5 @@
 class LessonsController < ApplicationController
-    rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
+    # rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
 
     def index 
         lessons = Lesson.all 
@@ -28,11 +28,11 @@ class LessonsController < ApplicationController
 
     private 
 
-        def lesson_params
-            params.permit(:objective, :repertoire, :assignment, :date, :user_id, :earned_grade)
-        end
+    def lesson_params
+        params.permit(:objective, :repertoire, :assignment, :date, :user_id, :earned_grade)
+    end
 
-        def render_unprocessable_entity_response(invalid)
-            render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity
-        end
+    def render_unprocessable_entity_response(invalid)
+        render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity
+    end
 end

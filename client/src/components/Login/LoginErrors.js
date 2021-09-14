@@ -2,11 +2,13 @@ import { useSelector } from "react-redux"
 import './Login.css'
 
 const LoginErrors = () => {
-    const errors = useSelector(state => state.user.errors)
+    const errors = useSelector(state => state.errors)
     
     return (
         <div>
-            <h3 className='errors'>{errors}</h3>
+            {errors.map(err => {return (
+                <h3 className='errors'>{err}</h3>
+            )})}
         </div>
     )
 }

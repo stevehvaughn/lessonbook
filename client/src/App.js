@@ -11,58 +11,49 @@ import CreateLesson from "./components/Lessons/CreateLesson";
 
 const App = () => {
   const user = useSelector(state => state.user)
-  const [isLoading, setIsLoading] = useState(false)
-  
   const dispatch = useDispatch()
 
   useEffect(() => {
-    setIsLoading(true)
-    dispatch(loginPersist(setIsLoading))
+    dispatch(loginPersist())
   }, [dispatch])
- 
-  if (isLoading === true) {
-    return (
-      <h1></h1>
-    )
-  } else {
-    return (
-      <div>
-        <Navbar />
-        {user.isLoggedIn
-        ?   
-        <>
-          <Switch>
-              <Route path="/" exact component={() => <Home/>} />
-          </Switch>
-          <Switch>
-              <Route path="/create-lesson" exact component={() => <CreateLesson/>} />
-          </Switch>
-          <Switch>
-              <Route path="/students" exact component={() => <Home/>} />
-          </Switch>
-          <Switch>
-            <Route path="/teachers" exact component={() => <Home/>} />
-          </Switch>
-          <Switch>
-            <Route path="/contact" exact component={() => <Home/>} />
-          </Switch>
-        </>
-        : 
-        <>
-          <Switch>
-            <Route path="/signup" exact component={() => <CreateAccount/>} />
-          </Switch>
-          <Switch>
-              <Route path="/about" exact component={() => <About />} />
-          </Switch>
-          <Switch>
-            <Route path='/' exact component={() => <Login />} />
-          </Switch>
-        </>
-        }
-      </div>
-    );
-  }
+
+  return (
+    <div>
+      <Navbar />
+      {user.isLoggedIn
+      ?   
+      <>
+        <Switch>
+            <Route path="/" exact component={() => <Home/>} />
+        </Switch>
+        <Switch>
+            <Route path="/create-lesson" exact component={() => <CreateLesson/>} />
+        </Switch>
+        <Switch>
+            <Route path="/students" exact component={() => <Home/>} />
+        </Switch>
+        <Switch>
+          <Route path="/teachers" exact component={() => <Home/>} />
+        </Switch>
+        <Switch>
+          <Route path="/contact" exact component={() => <Home/>} />
+        </Switch>
+      </>
+      : 
+      <>
+        <Switch>
+          <Route path="/signup" exact component={() => <CreateAccount/>} />
+        </Switch>
+        <Switch>
+            <Route path="/about" exact component={() => <About />} />
+        </Switch>
+        <Switch>
+          <Route path='/' exact component={() => <Login />} />
+        </Switch>
+      </>
+      }
+    </div>
+  );
 }
 
 export default App;

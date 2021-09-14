@@ -1,14 +1,19 @@
 import './TeacherView.css'
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { deleteLesson } from "../../redux/actions/lessonActions"
 
 
-const SelectedLesson = ({selectedLesson}) => {  
+const SelectedLesson = ({selectedLesson, setSelectedLesson}) => {  
     const dispatch = useDispatch()
-    
+
+    const students = useSelector(state => state.students)
+  
     function handleDeleteLesson(e) {
-        const selectedLesson = parseInt(e.target.id)
-        dispatch(deleteLesson(selectedLesson))
+        const selectedLessonId = parseInt(e.target.id)
+        const arrayIndexOfStudent = students.findIndex(student => student.id === parseInt(selectedLesson.student.id))
+        console.log(arrayIndexOfStudent)
+        setSelectedLesson(null)
+        dispatch(deleteLesson(selectedLessonId, arrayIndexOfStudent))
     }
     
     return (

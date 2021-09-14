@@ -1,10 +1,9 @@
 import './Lessons.css'
 import '../CreateAccount/CreateAccount.css'
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 import { useState } from "react"
-// import { addLessonToStudent } from "../../redux/actions/lessonActions"
-import CreateLessonSuccess from "./CreateLessonSuccess"
-import CreateAccountErrors from "../CreateAccount/CreateAccountErrors"
+import { addLessonToStudent } from "../../redux/actions/lessonActions"
+import LoginErrors from '../Login/LoginErrors'
 
 const CreateLesson = () => {
     const [newLessonData, setNewLessonData] = useState({
@@ -15,55 +14,20 @@ const CreateLesson = () => {
         user_id: "",
         earned_grade: ""
     })
-    // const dispatch = useDispatch()
-    const students = useSelector(state => state.user.students)
+    const dispatch = useDispatch()
+    const students = useSelector(state => state.students)
+    const success = useSelector(state => state.success.lesson)
     
-    const [errors, setErrors] = useState([])
-    const [success, setSuccess] = useState(false)
-
-    console.log(newLessonData)
-
     function handleNewLessonData(e) {
         setNewLessonData({...newLessonData,
             [e.target.name] : e.target.value
         })
     }
 
-    // function handleNewLessonNumberData(e) {
-    //     setNewLessonData({...newLessonData, 
-    //     [e.target.name] : parseInt(e.target.value)
-    //     })
-    // }
-
     function handleSubmit(e) {
         e.preventDefault()
-        // dispatch(addLessonToStudent(newLessonData))
-        fetch('/lessons', {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(newLessonData)
-        })
-        .then(resp => {
-            if (resp.ok) {
-                resp.json().then(setSuccess(true))
-                setNewLessonData({...newLessonData, 
-                    objective: "",
-                    repertoire: "",
-                    assignment: "",
-                    date: new Date().toISOString().slice(0, 10),
-                    user_id: "",
-                    earned_grade: ""
-                })
-            } else {
-                resp.json().then(err => {
-                    console.log(err)
-                    setErrors(err.errors)
-                    setSuccess(false)
-                })
-            }
-        })
+        const arrayIndexOfStudent = students.findIndex(student => student.id === parseInt(newLessonData.user_id))
+        dispatch(addLessonToStudent(newLessonData, arrayIndexOfStudent, setNewLessonData))
     }
  
     return (
@@ -84,7 +48,7 @@ const CreateLesson = () => {
                     </div>
                     <div className='form-div'>
                         <label className='new-account-label' htmlFor='assignment'>Assignment:</label>
-                        <textarea placeholder="Materials in this section are assigned for the students' next lesson" className='new-account-input large-input' type='text' name='assignment' value={newLessonData.assignment} onChange={handleNewLessonData}></textarea>
+                        <textarea placeholder="Materials in this section are assigned for the students' next lesson. Seperate with commas for readability" className='new-account-input large-input' type='text' name='assignment' value={newLessonData.assignment} onChange={handleNewLessonData}></textarea>
                     </div>
                     <div className='form-div'>
                         <label className='new-account-label' htmlFor='user_id'>Student:</label>
@@ -101,18 +65,7 @@ const CreateLesson = () => {
                     </div>
                 <button className='complete-lesson' type='submit'>Complete Lesson</button><br/>
             </form><br/>
-            { success 
-                ? <CreateLessonSuccess />
-                : 
-                <>
-                {errors.map(error => { return (
-                    <CreateAccountErrors
-                        key = {error}
-                        error = {error}
-                    />
-                )})}
-                </>
-                }
+            { success ? <h3 className='success'>{success}</h3> : <LoginErrors />}
         </div>
     )
 }

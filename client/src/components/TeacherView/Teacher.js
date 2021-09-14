@@ -1,13 +1,18 @@
-import { useSelector } from 'react-redux'
-import { useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { useState, useEffect } from 'react'
+import { getUsersStudents } from '../../redux/actions/userActions'
 import SelectedLesson from './SelectedLesson'
 import StudentOfTeacher from './StudentOfTeacher'
 import './TeacherView.css'
 
 const Teacher = () => {
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(getUsersStudents())
+      }, [dispatch])
 
     const teacher = useSelector(state => state.user)
-    const students = useSelector(state => state.user.students)
+    const students = useSelector(state => state.students)
 
     const [selectedLesson, setSelectedLesson] = useState(null)
 
@@ -73,11 +78,12 @@ const Teacher = () => {
                 {students.map(student => {return (
                     <StudentOfTeacher 
                         key = {student.id}
+                        id = {student.id}
+                        students = {students}
                         first_name = {student.first_name}
                         last_name = {student.last_name}
                         picture_url = {student.picture_url}
                         username = {student.username}
-                        lessons = {student.lessons}
                         lesson_time = {student.lesson_time}
                         lesson_day = {student.lesson_day}
                         year_in_school = {student.year_in_school}
@@ -88,6 +94,7 @@ const Teacher = () => {
             { selectedLesson 
             ?   <SelectedLesson 
                     selectedLesson = {selectedLesson}
+                    setSelectedLesson = {setSelectedLesson}
                 />
             : null 
             }
