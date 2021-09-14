@@ -27,7 +27,7 @@ const CreateLesson = () => {
     function handleSubmit(e) {
         e.preventDefault()
         const arrayIndexOfStudent = students.findIndex(student => student.id === parseInt(newLessonData.user_id))
-        dispatch(addLessonToStudent(newLessonData, arrayIndexOfStudent))
+        dispatch(addLessonToStudent(newLessonData, arrayIndexOfStudent, setNewLessonData))
     }
  
     return (

@@ -3,7 +3,7 @@ import Login from "./components/Login/Login";
 import Home from "./components/Home";
 import CreateAccount from "./components/CreateAccount/CreateAccount";
 import About from "./components/About/About";
-import { getUsersStudents, loginPersist } from "./redux/actions/userActions";
+import { loginPersist } from "./redux/actions/userActions";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { Switch, Route } from 'react-router-dom'
@@ -16,18 +16,12 @@ const App = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    setIsLoading(true)
     dispatch(loginPersist(setIsLoading))
-    setIsLoading(false)
   }, [dispatch])
 
-  useEffect(() => {
-    dispatch(getUsersStudents())
-  }, [])
- 
   if (isLoading === true) {
     return (
-      <h1></h1>
+      <h1>Loading</h1>
     )
   } else {
     return (

@@ -1,10 +1,15 @@
-import { useSelector } from 'react-redux'
-import { useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { useState, useEffect } from 'react'
+import { getUsersStudents } from '../../redux/actions/userActions'
 import SelectedLesson from './SelectedLesson'
 import StudentOfTeacher from './StudentOfTeacher'
 import './TeacherView.css'
 
 const Teacher = () => {
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(getUsersStudents())
+      }, [dispatch])
 
     const teacher = useSelector(state => state.user)
     const students = useSelector(state => state.students)

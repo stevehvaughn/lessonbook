@@ -9,7 +9,7 @@ export function getUsersLessons() {
     }
 }
 
-export function addLessonToStudent(newLessonData, arrayIndexOfStudent) {
+export function addLessonToStudent(newLessonData, arrayIndexOfStudent, setNewLessonData) {
     return (dispatch) => {
         return fetch('/lessons', {
             method: "POST",
@@ -24,6 +24,14 @@ export function addLessonToStudent(newLessonData, arrayIndexOfStudent) {
                     type: "ADD_LESSON",
                     payload: data,
                     studentIndex: arrayIndexOfStudent
+                }))
+                .then(setNewLessonData({
+                    objective: "",
+                    repertoire: "",
+                    assignment: "",
+                    date: new Date().toISOString().slice(0, 10),
+                    user_id: "",
+                    earned_grade: ""
                 }))
             } else {
                 resp.json().then(err => dispatch({

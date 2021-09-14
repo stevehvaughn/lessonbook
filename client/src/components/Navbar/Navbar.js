@@ -1,5 +1,5 @@
 import { Button } from '../Button'
-import { toggleActive, toggleOn, toggleOff } from "../../redux/actions/navbarActions"
+import { toggleActive, toggleOff } from "../../redux/actions/navbarActions"
 import { logoutAction } from "../../redux/actions/userActions"
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
@@ -15,7 +15,6 @@ const Navbar = () => {
 
     function closeNavMenu() {
         dispatch(toggleOff())
-        console.log('hey')
     }
 
     function handleLogOut() {
