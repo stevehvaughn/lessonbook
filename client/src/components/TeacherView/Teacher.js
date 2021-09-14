@@ -7,7 +7,7 @@ import './TeacherView.css'
 const Teacher = () => {
 
     const teacher = useSelector(state => state.user)
-    const students = useSelector(state => state.user.students)
+    const students = useSelector(state => state.students)
 
     const [selectedLesson, setSelectedLesson] = useState(null)
 

@@ -6,4 +6,5 @@ class Lesson < ApplicationRecord
   validates :objective, presence: true
   validates :repertoire, presence: true
   validates :assignment, presence: true
+  
 end

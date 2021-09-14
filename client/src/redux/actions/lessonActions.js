@@ -1,6 +1,6 @@
 export function getUsersLessons() {
     return (dispatch) => {
-        return fetch("/users-lessons")
+        return fetch("/lessons")
         .then(resp => resp.json())
         .then(data => dispatch({
             type: "GET_LESSONS",

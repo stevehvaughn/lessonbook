@@ -14,9 +14,7 @@ export function userReducer(state = initialState, action) {
                 email: action.payload.email,
                 username: action.payload.email,
                 picture_url: action.payload.picture_url,
-                students: action.payload.students,
                 teacher: action.payload.teacher,
-                lessons: action.payload.lessons
             }
         case "LOGOUT_USER":
             return initialState
