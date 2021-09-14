@@ -20,8 +20,6 @@ export function userReducer(state = initialState, action) {
             return initialState
         case "SIGNUP_NEW_USER":
             return {}
-        case "LOGIN_ERROR":
-            return {...state, errors: action.payload }
         default: 
             return state
     }

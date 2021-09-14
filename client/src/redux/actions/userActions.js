@@ -71,7 +71,6 @@ export function getAllTeachers() {
 
 export function getUsersStudents() {
     return (dispatch) => {
-        console.log('hey')
         return fetch('/users-students')
         .then(resp => resp.json())
         .then(data => dispatch({

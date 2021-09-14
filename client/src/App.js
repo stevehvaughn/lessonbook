@@ -18,6 +18,7 @@ const App = () => {
   useEffect(() => {
     setIsLoading(true)
     dispatch(loginPersist(setIsLoading))
+    setIsLoading(false)
   }, [dispatch])
 
   useEffect(() => {
