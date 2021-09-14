@@ -7,7 +7,7 @@ export function studentsReducer(state = [], action) {
             return state 
         case "DELETE_LESSON":
             const lessonsWithoutDeletedLesson = state[action.studentIndex].lessons.filter(lesson => lesson.id !== action.payload)
-            state[action.studentIndex].lessons = lessonsWithoutDeletedLesson
+            state[action.studentIndex].lessons = lessonsWithoutDeletedLesson;
             return state
         default: 
             return state
