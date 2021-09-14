@@ -15,12 +15,7 @@
 	padding: 5px;
 }
 
-.form-container {
-	width: 50vw;
-}
-
 .form-button {
-	display: inline-block;
 	padding: 0.3em 1.2em;
 	margin: 0 0.3em 0.3em 0;
 	border-radius: 2em;
@@ -28,28 +23,39 @@
 	text-decoration: none;
 	text-align: center;
 	transition: all 0.2s;
+	margin-left: auto;
+	margin-right: auto;
+	width: 30%;
+	font-size: 1em;
 }
 
 .form-button:hover {
 	background-color: grey;
 }
 
-@media all and (max-width: 650px) {
+#upload-button {
+	width: 100%;
+}
+
+@media all and (max-width: 850px) {
 	.form-div {
 		grid-template-columns: max-content 40vw;
 	}
 
 	#upload-pic-div {
 		display: block;
-		margin-left: 30vw;
+		margin-left: auto;
+		margin-right: auto;
 	}
 
 	#upload-label {
-		text-align: left;
+		text-align: right;
+		padding-right: 10px;
+		margin-right: 10%;
 	}
 
 	#upload-button {
-		margin-left: 15vw;
+		width: 30%;
 	}
 }
 

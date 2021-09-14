@@ -96,7 +96,7 @@ const CreateAccount = () => {
     return (
         <div>
             <h1>Create New Account</h1>
-            <form className='form-container' onSubmit={handleNewUserSubmit}>
+            <form onSubmit={handleNewUserSubmit}>
                 <div className='form-div'>
                     <label className='new-account-label' htmlFor='first_name'>First Name:</label>
                     <input className='new-account-input' type='text' name='first_name' value={newUserData.first_name} onChange={handleNewUserData}></input>
@@ -173,11 +173,11 @@ const CreateAccount = () => {
                     </div>
                     </>
                 }
-                </form><br/>
-            <button className='form-button' type='submit'>Create Account</button>
-            <Link to="/" >
-                <button className='form-button'>Already Have an Account?</button>
-            </Link>
+                <button className='form-button' type='submit'>Create Account</button><br/>
+                <Link style={{ textDecoration: 'none' }} to="/" >
+                    <button className='form-button'>Already Have an Account?</button>
+                </Link>
+            </form><br/>
             { success 
             ? <CreateAccountSuccess />
             : 

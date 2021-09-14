@@ -69,7 +69,7 @@ const CreateLesson = () => {
     return (
         <div>
             <h1>New Lesson</h1>
-                <form className='form-container' onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit}>
                     <div className='form-div'>
                         <label className='new-account-label' htmlFor='date'>Date of Lesson:</label>
                         <input className='new-account-input' type='date' name='date' value={newLessonData.date} onChange={handleNewLessonData}></input>
