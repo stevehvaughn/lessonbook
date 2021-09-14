@@ -48,7 +48,7 @@ const CreateLesson = () => {
                     </div>
                     <div className='form-div'>
                         <label className='new-account-label' htmlFor='assignment'>Assignment:</label>
-                        <textarea placeholder="Materials in this section are assigned for the students' next lesson" className='new-account-input large-input' type='text' name='assignment' value={newLessonData.assignment} onChange={handleNewLessonData}></textarea>
+                        <textarea placeholder="Materials in this section are assigned for the students' next lesson. Seperate with commas for readability" className='new-account-input large-input' type='text' name='assignment' value={newLessonData.assignment} onChange={handleNewLessonData}></textarea>
                     </div>
                     <div className='form-div'>
                         <label className='new-account-label' htmlFor='user_id'>Student:</label>
