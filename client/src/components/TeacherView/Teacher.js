@@ -78,11 +78,12 @@ const Teacher = () => {
                 {students.map(student => {return (
                     <StudentOfTeacher 
                         key = {student.id}
+                        id = {student.id}
+                        students = {students}
                         first_name = {student.first_name}
                         last_name = {student.last_name}
                         picture_url = {student.picture_url}
                         username = {student.username}
-                        lessons = {student.lessons}
                         lesson_time = {student.lesson_time}
                         lesson_day = {student.lesson_day}
                         year_in_school = {student.year_in_school}
@@ -93,6 +94,7 @@ const Teacher = () => {
             { selectedLesson 
             ?   <SelectedLesson 
                     selectedLesson = {selectedLesson}
+                    setSelectedLesson = {setSelectedLesson}
                 />
             : null 
             }

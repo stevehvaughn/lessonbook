@@ -23,7 +23,7 @@ export function loginAction(formData) {
     }
 }
 
-export function loginPersist(setIsLoading) {
+export function loginPersist() {
     return (dispatch) => {
         return fetch("/me").then(resp => {
             if (resp.ok) {

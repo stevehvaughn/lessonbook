@@ -30,8 +30,8 @@ export function addLessonToStudent(newLessonData, arrayIndexOfStudent, setNewLes
                     repertoire: "",
                     assignment: "",
                     date: new Date().toISOString().slice(0, 10),
-                    user_id: "",
-                    earned_grade: ""
+                    earned_grade: "",
+                    user_id: newLessonData.user_id
                 }))
             } else {
                 resp.json().then(err => dispatch({
@@ -43,10 +43,15 @@ export function addLessonToStudent(newLessonData, arrayIndexOfStudent, setNewLes
     }
 }
 
-export function deleteLesson(selectedLesson) {
+export function deleteLesson(selectedLessonId, arrayIndexOfStudent) {
     return (dispatch) => {
-        return fetch(`/lessons/${selectedLesson}`, {
+        return fetch(`/lessons/${selectedLessonId}`, {
             method: "DELETE"
         })
+        .then(dispatch({
+            type: "DELETE_LESSON",
+            payload: selectedLessonId,
+            studentIndex: arrayIndexOfStudent
+        }))
     }
 }
