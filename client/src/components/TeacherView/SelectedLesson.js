@@ -1,5 +1,7 @@
+import './TeacherView.css'
 import { useDispatch } from "react-redux"
 import { deleteLesson } from "../../redux/actions/lessonActions"
+
 
 const SelectedLesson = ({selectedLesson}) => {  
     const dispatch = useDispatch()
@@ -19,13 +21,13 @@ const SelectedLesson = ({selectedLesson}) => {
             <h3>Assignment: {selectedLesson.assignment}</h3>
             {selectedLesson.earned_grade 
             ?   <>
-                <h3>Grade: {selectedLesson.earned_grade}</h3><br/>
+                <h3>Grade: {selectedLesson.earned_grade}</h3>
                 </>
             :   <>
-                <h3>No Grade Assigned</h3><button>Assign Grade</button><br/>
+                <h3>No Grade Assigned</h3><button className='show-lessons-button'>Assign Grade</button>
                 </>
             }
-            <button id={selectedLesson.id} onClick={handleDeleteLesson}>Delete Lesson</button>
+            <button className='show-lessons-button' id={selectedLesson.id} onClick={handleDeleteLesson}>Delete Lesson</button>
         </div>
     )
 }
