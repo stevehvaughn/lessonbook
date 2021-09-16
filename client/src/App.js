@@ -5,7 +5,7 @@ import CreateAccount from "./components/CreateAccount/CreateAccount";
 import About from "./components/About/About";
 import { loginPersist } from "./redux/actions/userActions";
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Switch, Route } from 'react-router-dom'
 import CreateLesson from "./components/Lessons/CreateLesson";
 

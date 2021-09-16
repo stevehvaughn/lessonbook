@@ -21,6 +21,7 @@
 	border-radius: 10px;
 	width: 25%;
 	margin: 10px;
+	transition: ease-in 0.2s;
 }
 
 .form-button:hover {

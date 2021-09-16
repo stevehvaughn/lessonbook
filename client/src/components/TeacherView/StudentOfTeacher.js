@@ -1,6 +1,5 @@
 import './TeacherView.css'
-import { useState, useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import { useState } from 'react'
 
 const StudentOfTeacher = ({first_name, last_name, picture_url, id, students, username, lesson_time, lesson_day, year_in_school, renderFullLesson }) => {
     const [showLessons, setShowLessons] = useState(false)
