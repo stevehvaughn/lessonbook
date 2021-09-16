@@ -1,6 +1,19 @@
 import './TeacherView.css'
 import { useState } from 'react'
 
+export function getFormattedDate(date) {
+    const monthNames = ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+    ];
+    let input = date.split("-")
+    
+    let year = input[0]
+    const month = monthNames[input[1] - 1]
+    let day = input[2]
+  
+    return month + " " + day + ', ' + year;
+}
+
 const StudentOfTeacher = ({first_name, last_name, picture_url, id, students, username, lesson_time, lesson_day, year_in_school, renderFullLesson }) => {
     const [showLessons, setShowLessons] = useState(false)
     const [isHovering, setIsHovering] = useState(false)
@@ -32,19 +45,6 @@ const StudentOfTeacher = ({first_name, last_name, picture_url, id, students, use
         return isNaN(dayOfWeek) ? null : 
           ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][dayOfWeek];
       }
-
-      function getFormattedDate(date) {
-        const monthNames = ["January", "February", "March", "April", "May", "June",
-        "July", "August", "September", "October", "November", "December"
-        ];
-        let input = date.split("-")
-        
-        let year = input[0]
-        const month = monthNames[input[1] - 1]
-        let day = input[2]
-      
-        return month + " " + day + ', ' + year;
-    }
 
     const sortLessons = (lessons) => {
         lessons.sort(function(a, b){

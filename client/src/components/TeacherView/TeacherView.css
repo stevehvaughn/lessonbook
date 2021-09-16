@@ -6,6 +6,12 @@
 	background-color: gray;
 }
 
+/* .small {
+	height: 5vh;
+	display: inline-block;
+	vertical-align: baseline;
+} */
+
 .single-student-container {
 	display: block;
 	border: outset #eee;
@@ -31,12 +37,23 @@
 .single-lesson {
 	margin: 0.5rem;
 	cursor: pointer;
+	transition: all 0.2s;
+}
+
+.single-lesson:hover {
+	font-size: 1.25em;
 }
 
 .selected-lesson-container {
 	display: block;
-	margin: 1rem;
-	padding: 1rem;
+	margin: 1em;
+	padding: 1em;
+	border: solid 1px;
+	background: #fff;
+}
+
+.selected-lesson-header {
+	display: flex;
 }
 
 .teacher-header {
@@ -73,6 +90,21 @@
 
 .show-lessons-button:hover {
 	background-color: lightgrey;
+}
+
+.delete-button {
+	display: inline-block;
+	padding: 0.3em 1.2em;
+	margin: 1em 0.3em 0.3em 0;
+	border-radius: 2em;
+	box-sizing: border-box;
+	text-decoration: none;
+	text-align: center;
+	transition: all 0.2s;
+}
+
+.delete-button:hover {
+	background-color: #da3a26;
 }
 
 @media screen and (min-width: 300px) {
