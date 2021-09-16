@@ -18,12 +18,12 @@ const SelectedLesson = ({selectedLesson, setSelectedLesson}) => {
 
     return (
         <div className='selected-lesson-container'>
-            <h2>Selected Lesson</h2>
+            <h2>Selected Lesson</h2><br/>
             <p>Student: {selectedLesson.student.combined_name}</p>
             <p>Date: {getFormattedDate(selectedLesson.date)}</p>
             <p>Objective: {selectedLesson.objective}</p>
             <p>Repertoire: {selectedLesson.repertoire}</p>
-            <p>Assignment: {selectedLesson.assignment}</p>
+            <p>Assignment: {selectedLesson.assignment}</p><br/>
             {/* {selectedLesson.earned_grade 
             ?   <>
                 <h3>Grade: {selectedLesson.earned_grade}</h3>
@@ -32,6 +32,7 @@ const SelectedLesson = ({selectedLesson, setSelectedLesson}) => {
                 <h3>No Grade Assigned</h3><button className='show-lessons-button'>Assign Grade</button>
                 </>
             } */}
+            <button className='show-lessons-button' onClick={() => setSelectedLesson(null)}>Hide Lesson</button>
             <button className='delete-button' id={selectedLesson.id} onClick={handleDeleteLesson}>Delete Lesson</button>
         </div>
     )

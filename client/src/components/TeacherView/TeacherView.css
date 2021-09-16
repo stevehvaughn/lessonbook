@@ -22,6 +22,8 @@
 
 .students-lessons-list {
 	list-style: none;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
 }
 
 .students-lessons-container {
@@ -29,21 +31,23 @@
 }
 
 .single-lesson {
-	margin: 0.5rem;
 	cursor: pointer;
 	transition: all 0.2s;
+	width: fit-content;
+	margin: 1em auto;
 }
 
 .single-lesson:hover {
-	font-size: 1.25em;
+	transform: scale(1.2);
 }
 
 .selected-lesson-container {
-	display: block;
+	display: inline-block;
 	margin: 1em;
-	padding: 1em;
-	border: solid 1px;
+	padding: 2em;
+	border: outset #eee;
 	background: #fff;
+	width: 33.3%;
 }
 
 .selected-lesson-header {
