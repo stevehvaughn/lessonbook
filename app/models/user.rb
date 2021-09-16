@@ -8,11 +8,11 @@ class User < ApplicationRecord
     has_many :practice_logs, foreign_key: "student_id"
 
     validates :username, uniqueness: true, presence: true, length: { minimum: 4 }
-    validates :email, uniqueness: true, presence: true
-    validates :password, presence: true
+    validates :email, uniqueness: true, presence: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
+    validates :password, presence: true, length: { minimum: 8 }
 
     def combined_name
-        combined_name = self.first_name + " " + self.last_name
+        combined_name = self.first_name.capitalize() + " " + self.last_name.capitalize()
     end
 
     def self.teachers
