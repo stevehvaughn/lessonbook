@@ -53,6 +53,8 @@ const Teacher = () => {
     
     function renderFullLesson(e) {
         const clickedLesson = parseInt(e.target.id)
+        { selectedLesson && clickedLesson === selectedLesson.id ? setSelectedLesson(null) 
+        : 
         fetch(`/lessons/${clickedLesson}`)
         .then(resp => resp.json())
         .then(data => {
@@ -61,8 +63,9 @@ const Teacher = () => {
                 top: document.body.offsetHeight,
                 left: 0, 
                 behavior: 'smooth',
-        })
-        });
+                })
+            });
+        }
     }
 
     return (
