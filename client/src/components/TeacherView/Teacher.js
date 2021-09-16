@@ -72,7 +72,7 @@ const Teacher = () => {
     return (
         <div>
             <div className='teacher-header'>
-                { teacher.picture_url ? <img className="avatar-picture" src={teacher.picture_url} alt="teacher_picture"></img> : <Avatar round='50%' name={combined_name} /> }
+                { teacher.picture_url ? <img className="avatar-picture" src={teacher.picture_url} alt="teacher_picture"></img> : <Avatar round='50%' name={teacher.combined_name} /> }
                 <h1 id="teacher-header-text">  Professor {teacher.last_name}'s Studio</h1>
             </div>
             <h2 className='page-header'>Current Students</h2>
