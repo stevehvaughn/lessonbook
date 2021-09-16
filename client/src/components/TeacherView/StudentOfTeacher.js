@@ -21,6 +21,8 @@ const StudentOfTeacher = ({first_name, last_name, combined_name, picture_url, id
     const [showLessons, setShowLessons] = useState(false)
     const [isHovering, setIsHovering] = useState(false)
     const [hoveringID, setHoveringID] = useState("")
+    const [pageX, setPageX] = useState("")
+    const [pageY, setPageY] = useState("")
     const dispatch = useDispatch()
 
     const currentStudent = students.filter(student => student.id === id)
@@ -28,6 +30,8 @@ const StudentOfTeacher = ({first_name, last_name, combined_name, picture_url, id
 
     function handleMouseOver(e) {
         setHoveringID(e.target.id)
+        setPageX(e.pageX)
+        setPageY(e.pageY)
         setIsHovering(true)
     }
 
@@ -80,7 +84,7 @@ const StudentOfTeacher = ({first_name, last_name, combined_name, picture_url, id
                             <li id={lesson.id} key={lesson.id} className='single-lesson' onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} onClick={renderFullLesson}>
                                 {getDayOfWeek(lesson.date), getFormattedDate(lesson.date)}
                             </li>
-                            {isHovering === true && lesson.id === parseInt(hoveringID) ? <p className='hover-text'>{lesson.objective}<br/><br/>{lesson.assignment}</p> : null}
+                            {isHovering === true && lesson.id === parseInt(hoveringID) ? <p className='hover-text' style={{ left: parseInt(pageX), top: parseInt(pageY) + 10 }}>{lesson.objective}<br/><br/>{lesson.assignment}</p> : null}
                             </>
                         )})}
                     </ul>

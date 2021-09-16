@@ -69,6 +69,7 @@
 	z-index: 1000;
 	color: black;
 	font-size: 0.8em;
+	overflow: hidden;
 }
 
 .show-lessons-button {
