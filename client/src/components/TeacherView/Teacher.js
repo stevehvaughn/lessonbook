@@ -74,7 +74,7 @@ const Teacher = () => {
                 <img className="avatar-picture" src={teacher.picture_url} alt="teacher_picture"></img>
                 <h1 id="teacher-header-text">  Professor {teacher.last_name}'s Studio</h1>
             </div>
-            <h2>Current Students</h2>
+            <h2 className='page-header'>Current Students</h2>
             <p>Click Show Lessons to display all of the lessons for that student</p>
             <p>Hover over a lesson to see that lesson's objective and assignment or click the lesson to see full details</p>
             <div className='students-container'>

@@ -100,7 +100,7 @@ const CreateAccount = () => {
   
     return (
         <div>
-            <h1>Create New Account</h1>
+            <h1 className='page-header'>Create New Account</h1>
             <form onSubmit={handleNewUserSubmit}>
                 <div className='sub-div'>
                     <div className='form-div'>

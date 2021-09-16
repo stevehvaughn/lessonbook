@@ -130,7 +130,7 @@
 
 @media screen and (min-width: 900px) {
 	.students-container {
-		grid-template-columns: auto auto auto;
+		grid-template-columns: auto auto;
 	}
 
 	.selected-lesson-container {

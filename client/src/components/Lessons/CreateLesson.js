@@ -31,7 +31,7 @@ const CreateLesson = () => {
  
     return (
         <div>
-            <h1>New Lesson</h1>
+            <h1 className='page-header'>New Lesson</h1>
                 <form onSubmit={handleSubmit}>
                     <div className='form-div'>
                         <label htmlFor='date'>Date of Lesson:</label>

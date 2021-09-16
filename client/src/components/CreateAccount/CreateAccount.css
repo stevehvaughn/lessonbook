@@ -3,6 +3,11 @@
 	padding: 0.5rem;
 }
 
+.page-header {
+	padding: 0.5em;
+	font-size: 3em;
+}
+
 .success {
 	color: blue;
 	padding: 2rem;
