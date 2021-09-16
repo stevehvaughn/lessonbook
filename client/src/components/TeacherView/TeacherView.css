@@ -1,6 +1,6 @@
 .avatar-picture {
 	border-radius: 50%;
-	border: solid;
+	border: solid 1px;
 	object-fit: cover;
 	height: 10vh;
 	background-color: gray;
@@ -8,7 +8,7 @@
 
 .single-student-container {
 	display: block;
-	border: solid;
+	border: outset #eee;
 	padding: 1rem;
 	margin: 1rem;
 	background: #fff;
@@ -52,7 +52,8 @@
 .hover-text {
 	position: absolute;
 	background: lightgray;
-	border: 1px solid;
+	border: 1px solid #eee;
+	border-radius: 10px;
 	padding: 1em;
 	z-index: 1000;
 	color: black;
