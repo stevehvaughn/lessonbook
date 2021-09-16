@@ -44,7 +44,7 @@
 .selected-lesson-container {
 	display: inline-block;
 	margin: 1em;
-	padding: 2em;
+	padding: 1em;
 	border: outset #eee;
 	background: #fff;
 	width: 50%;
@@ -110,16 +110,19 @@
 	.students-container {
 		grid-template-columns: auto;
 	}
+
+	.selected-lesson-container {
+		width: 90%;
+	}
 }
 
 @media screen and (min-width: 600px) {
-	.show-lessons-button {
-		display: block;
-		margin: 0.2em auto;
-	}
-
 	.students-container {
 		grid-template-columns: auto auto;
+	}
+
+	.selected-lesson-container {
+		width: 75%;
 	}
 }
 
@@ -127,10 +130,18 @@
 	.students-container {
 		grid-template-columns: auto auto auto;
 	}
+
+	.selected-lesson-container {
+		width: 60%;
+	}
 }
 
 @media screen and (min-width: 1200px) {
 	.students-container {
 		grid-template-columns: auto auto auto auto;
+	}
+
+	.selected-lesson-container {
+		width: 33.3%;
 	}
 }
