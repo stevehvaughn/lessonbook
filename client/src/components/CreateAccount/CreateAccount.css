@@ -13,7 +13,7 @@
 	grid-template-columns: 1fr 3fr;
 }
 
-.is-student-div {
+.sub-div {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	align-items: center;
@@ -37,6 +37,16 @@
 
 .large-input {
 	height: 10vh;
+}
+
+#upload-pic-div {
+	display: grid;
+	grid-template-columns: 1fr 2fr 1fr;
+	align-items: center;
+}
+
+#upload-button {
+	width: 75%;
 }
 
 input[type=text],
@@ -65,7 +75,7 @@ select {
 input[type=file] {
 	padding: 10px;
 	margin: 10px 0;
-	width: 50%;
+	width: 100%;
 }
 
 label {
@@ -74,7 +84,7 @@ label {
 	text-align: right;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 940px) {
 	input[type=text],
 	input[type=password],
 	input[type=number],
@@ -96,7 +106,7 @@ label {
 		grid-template-columns: 1fr 1.5fr;
 	}
 
-	.is-student-div {
+	.sub-div {
 		display: block;
 	}
 

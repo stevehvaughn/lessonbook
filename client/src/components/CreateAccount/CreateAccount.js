@@ -75,7 +75,7 @@ const CreateAccount = () => {
 
     function handleFileUpload(e) {
         e.preventDefault()
-        console.log('start of upload')
+        setErrors([])
         if (selectedFile.type === undefined) {
             setErrors(['Please select a file to upload'])
         } else if  (selectedFile.type !== 'image/jpeg' ) {
@@ -102,31 +102,33 @@ const CreateAccount = () => {
         <div>
             <h1>Create New Account</h1>
             <form onSubmit={handleNewUserSubmit}>
-                <div className='form-div'>
-                    <label htmlFor='first_name'>First Name:</label>
-                    <input type='text' name='first_name' value={newUserData.first_name} onChange={handleNewUserData}></input>
-                </div>
-                <div className='form-div'>
-                    <label htmlFor='last_name'>Last Name:</label>
-                    <input type='text' name='last_name' value={newUserData.last_name} onChange={handleNewUserData}></input>
-                </div>
-                <div className='form-div'>
-                    <label htmlFor='email'>Email:</label>
-                    <input type='text' name='email' value={newUserData.email} onChange={handleNewUserData}></input>
-                </div>
-                <div className='form-div'>
-                    <label htmlFor='username'>Username:</label>
-                    <input type='text' name='username' value={newUserData.username} onChange={handleNewUserData}></input>
-                </div>
-                <div className='form-div'>
-                    <label htmlFor='password'>Password:</label>
-                    <input type='password' name='password' value={newUserData.password} onChange={handleNewUserData}></input>
-                </div>
-                <div id='upload-pic-div' className='form-div'>
-                    <label id='upload-label' htmlFor='picture_url'>Upload Profile Picture:</label>
-                    <input type='file' name='picture_url' onChange={handleFileSelected}></input>
-                </div>
-                <button id='upload-button' className='form-button' type='submit' onClick={handleFileUpload}>Upload</button>
+                <div className='sub-div'>
+                    <div className='form-div'>
+                        <label htmlFor='first_name'>First Name:</label>
+                        <input type='text' name='first_name' value={newUserData.first_name} onChange={handleNewUserData}></input>
+                    </div>
+                    <div className='form-div'>
+                        <label htmlFor='last_name'>Last Name:</label>
+                        <input type='text' name='last_name' value={newUserData.last_name} onChange={handleNewUserData}></input>
+                    </div>
+                    <div className='form-div'>
+                        <label htmlFor='email'>Email:</label>
+                        <input type='text' name='email' value={newUserData.email} onChange={handleNewUserData}></input>
+                    </div>
+                    <div className='form-div'>
+                        <label htmlFor='username'>Username:</label>
+                        <input type='text' name='username' value={newUserData.username} onChange={handleNewUserData}></input>
+                    </div>
+                    <div className='form-div'>
+                        <label htmlFor='password'>Password:</label>
+                        <input type='password' name='password' value={newUserData.password} onChange={handleNewUserData}></input>
+                    </div>
+                    <div id='upload-pic-div' className='form-div'>
+                        <label id='upload-label' htmlFor='picture_url'>Upload Profile Picture:</label>
+                        <input type='file' name='picture_url' onChange={handleFileSelected}></input>
+                        <button id='upload-button' className='form-button' type='submit' onClick={handleFileUpload}>Upload</button>
+                    </div>
+                </div><br/>
                 { fileUploadSuccess && <h3>File Uploaded Successfully!</h3>}
                 <div className='form-div'>
                     <label htmlFor='is_teacher'>Student or Teacher?</label>
@@ -135,11 +137,11 @@ const CreateAccount = () => {
                         <option value="true">Teacher</option>
                         <option value="">Student</option>
                     </select>
-                </div>
+                </div><br/>
                 { isTeacher 
                 ?   null
                 :   <>
-                    <div className='is-student-div'>
+                    <div className='sub-div'>
                         <div className='form-div'>
                             <label htmlFor='year_in_school'>Year in School:</label>
                             <select id='year' name='year_in_school' onChange={handleNewUserData}>
@@ -178,7 +180,7 @@ const CreateAccount = () => {
                                 )})}
                             </select>
                         </div>
-                    </div>
+                    </div><br/>
                     </>
                 }
                 <button className='form-button' type='submit'>Create Account</button><br/>
