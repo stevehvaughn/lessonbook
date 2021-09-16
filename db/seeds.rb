@@ -46,7 +46,7 @@ students = User.where.not(id: teacher_ids)
 objectives = ["Improve Tone Quality", "Develop Finger Dexterity", "Prepare for Senior Recital", "Preapre for Upcoming Audition", "Improve Lip Flexability"]
 repertoires = ["Rochut", "Arbans", "Tyrell", "Excerpts" "Kopprasch" "Sparke Studies", "Pantomime - Philip Sparke", "Fantasia - Gordon Jacob", "Blind Spot - Gilles Rocha", "Fantasy Variations - Ito"]
 assignments = ["Rochut 4", "Rochut 5", "Rochut 6", 'Arbans pg. 220', "Arbans pg. 113", "Pantomime Reh A - E", "Stars and Stripes all", "Schoenberg first half", "Kopprasch 11"]
-10.times do
+30.times do
     Lesson.create!(
         user_id: students.ids.sample,
         objective: objectives.sample,

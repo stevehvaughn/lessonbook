@@ -89,6 +89,7 @@ const Teacher = () => {
                         lesson_day = {student.lesson_day}
                         year_in_school = {student.year_in_school}
                         renderFullLesson = {renderFullLesson}
+                        setSelectedLesson = {setSelectedLesson}
                     />
                 )})}
             </div>

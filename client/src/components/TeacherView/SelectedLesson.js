@@ -10,11 +10,14 @@ const SelectedLesson = ({selectedLesson, setSelectedLesson}) => {
     const students = useSelector(state => state.students)
   
     function handleDeleteLesson(e) {
-        const selectedLessonId = parseInt(e.target.id)
-        const arrayIndexOfStudent = students.findIndex(student => student.id === parseInt(selectedLesson.student.id))
-        setSelectedLesson(null)
-        dispatch(deleteLesson(selectedLessonId, arrayIndexOfStudent))
+        if (window.confirm("Are you sure you want to delete this Lesson?")) {
+            const selectedLessonId = parseInt(e.target.id)
+            const arrayIndexOfStudent = students.findIndex(student => student.id === parseInt(selectedLesson.student.id))
+            setSelectedLesson(null)
+            dispatch(deleteLesson(selectedLessonId, arrayIndexOfStudent))
+        }
     }
+
 
     return (
         <div className='selected-lesson-container'>
@@ -32,8 +35,8 @@ const SelectedLesson = ({selectedLesson, setSelectedLesson}) => {
                 <h3>No Grade Assigned</h3><button className='show-lessons-button'>Assign Grade</button>
                 </>
             } */}
-            <button className='show-lessons-button' onClick={() => setSelectedLesson(null)}>Hide Lesson</button>
             <button className='delete-button' id={selectedLesson.id} onClick={handleDeleteLesson}>Delete Lesson</button>
+            <button className='show-lessons-button' onClick={() => setSelectedLesson(null)}>Hide Lesson</button>
         </div>
     )
 }

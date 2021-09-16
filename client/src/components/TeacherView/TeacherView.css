@@ -23,7 +23,7 @@
 .students-lessons-list {
 	list-style: none;
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: 1fr;
 }
 
 .students-lessons-container {
@@ -47,7 +47,7 @@
 	padding: 2em;
 	border: outset #eee;
 	background: #fff;
-	width: 33.3%;
+	width: 50%;
 }
 
 .selected-lesson-header {
@@ -94,7 +94,7 @@
 .delete-button {
 	display: inline-block;
 	padding: 0.3em 1.2em;
-	margin: 1em 0.3em 0.3em 0;
+	margin: 0em 0.3em 0.3em 0;
 	border-radius: 2em;
 	box-sizing: border-box;
 	text-decoration: none;

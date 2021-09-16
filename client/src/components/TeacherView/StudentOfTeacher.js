@@ -17,7 +17,7 @@ export function getFormattedDate(date) {
     return month + " " + day + ', ' + year;
 }
 
-const StudentOfTeacher = ({first_name, last_name, combined_name, picture_url, id, students, username, lesson_time, lesson_day, year_in_school, renderFullLesson }) => {
+const StudentOfTeacher = ({first_name, last_name, combined_name, picture_url, id, students, username, lesson_time, lesson_day, year_in_school, renderFullLesson, setSelectedLesson }) => {
     const [showLessons, setShowLessons] = useState(false)
     const [isHovering, setIsHovering] = useState(false)
     const [hoveringID, setHoveringID] = useState("")
@@ -61,7 +61,7 @@ const StudentOfTeacher = ({first_name, last_name, combined_name, picture_url, id
     }
     sortLessons(lessons)
 
-    function handleAreYouSureDelete(e) {
+    function handleDeleteStudent(e) {
         if (window.confirm("Are you sure you want to delete this student?")) {
             const clickedUserId = parseInt(e.target.id)
             const arrayIndexOfStudent = students.findIndex(student => student.id === clickedUserId)
@@ -73,8 +73,9 @@ const StudentOfTeacher = ({first_name, last_name, combined_name, picture_url, id
         <div className='single-student-container'>
             {picture_url ? <img className='avatar-picture' src={picture_url} alt={last_name}></img> : <Avatar round='50%' name={combined_name} /> }
             <h4>{combined_name} - {year_in_school}</h4>
-            <h5>Lesson Time: {capitalizeFirstLetterOfString(lesson_day)} at {lesson_time}</h5><br/>
-            { lessons.length ? <button className='show-lessons-button' onClick={handleShowLessons}>{ showLessons ? "Hide Lessons" : "Show Lessons" }</button> : <p>No lessons to display</p> }
+            <h5>Lesson Time: {capitalizeFirstLetterOfString(lesson_day)} at {lesson_time}</h5>
+            <button id={id} onClick={(e) => {handleDeleteStudent(e)}} className='delete-button'>Delete Student</button><br/><br/>
+            { lessons.length ? <button className='show-lessons-button' onClick={() => {handleShowLessons(); setSelectedLesson(null)}}>{ showLessons ? "Hide Lessons" : "Show Lessons" }</button> : <p>No lessons to display</p> }
             { showLessons 
             ? 
                 <div className='students-lessons-container'>
@@ -91,7 +92,7 @@ const StudentOfTeacher = ({first_name, last_name, combined_name, picture_url, id
                 </div>
             : null
             }
-            <button id={id} onClick={(e) => {handleAreYouSureDelete(e)}} className='delete-button'>Delete Student</button>
+            
         </div>
     )
 }
