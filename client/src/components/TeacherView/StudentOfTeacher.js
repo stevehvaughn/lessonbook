@@ -56,7 +56,7 @@ const StudentOfTeacher = ({first_name, last_name, combined_name, picture_url, id
 
     const sortLessons = (lessons) => {
         lessons.sort(function(a, b){
-            return new Date(a.date) - new Date(b.date)
+            return new Date(b.date) - new Date(a.date)
         })
     }
     sortLessons(lessons)
