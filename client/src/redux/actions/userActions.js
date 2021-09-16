@@ -78,3 +78,20 @@ export function getUsersStudents() {
     }
 }
 
+export function deleteStudent(clickedUserId, arrayIndexOfStudent) {
+    return (dispatch) => {
+        return fetch(`/users/${clickedUserId}`, {
+            method: "DELETE"
+        })
+        .then(resp => {
+            if (resp.ok) {
+                dispatch({
+                    type: "DELETE_STUDENT",
+                    payload: clickedUserId,
+                    studentIndex: arrayIndexOfStudent
+                })
+            }
+        })
+    }
+}
+

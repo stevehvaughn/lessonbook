@@ -12,7 +12,6 @@ const SelectedLesson = ({selectedLesson, setSelectedLesson}) => {
     function handleDeleteLesson(e) {
         const selectedLessonId = parseInt(e.target.id)
         const arrayIndexOfStudent = students.findIndex(student => student.id === parseInt(selectedLesson.student.id))
-        console.log(arrayIndexOfStudent)
         setSelectedLesson(null)
         dispatch(deleteLesson(selectedLessonId, arrayIndexOfStudent))
     }

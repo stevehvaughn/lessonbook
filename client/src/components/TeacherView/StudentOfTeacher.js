@@ -1,5 +1,8 @@
 import './TeacherView.css'
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import Avatar from 'react-avatar';
+import { deleteStudent } from '../../redux/actions/userActions';
 
 export function getFormattedDate(date) {
     const monthNames = ["January", "February", "March", "April", "May", "June",
@@ -14,10 +17,11 @@ export function getFormattedDate(date) {
     return month + " " + day + ', ' + year;
 }
 
-const StudentOfTeacher = ({first_name, last_name, picture_url, id, students, username, lesson_time, lesson_day, year_in_school, renderFullLesson }) => {
+const StudentOfTeacher = ({first_name, last_name, combined_name, picture_url, id, students, username, lesson_time, lesson_day, year_in_school, renderFullLesson }) => {
     const [showLessons, setShowLessons] = useState(false)
     const [isHovering, setIsHovering] = useState(false)
     const [hoveringID, setHoveringID] = useState("")
+    const dispatch = useDispatch()
 
     const currentStudent = students.filter(student => student.id === id)
     let lessons = currentStudent[0].lessons
@@ -53,10 +57,16 @@ const StudentOfTeacher = ({first_name, last_name, picture_url, id, students, use
     }
     sortLessons(lessons)
 
+    function handleDeleteStudent(e) {
+        const clickedUserId = parseInt(e.target.id)
+        const arrayIndexOfStudent = students.findIndex(student => student.id === clickedUserId)
+        dispatch(deleteStudent(clickedUserId, arrayIndexOfStudent))
+    }
+
     return (
         <div className='single-student-container'>
-            <img className='avatar-picture' src={picture_url} alt={last_name}></img>
-            <h4>{first_name} {last_name} - {year_in_school}</h4>
+            {picture_url ? <img className='avatar-picture' src={picture_url} alt={last_name}></img> : <Avatar round='50%' name={combined_name} /> }
+            <h4>{combined_name} - {year_in_school}</h4>
             <h5>Lesson Time: {capitalizeFirstLetterOfString(lesson_day)} at {lesson_time}</h5><br/>
             { lessons.length ? <button className='show-lessons-button' onClick={handleShowLessons}>{ showLessons ? "Hide Lessons" : "Show Lessons" }</button> : <p>No lessons to display</p> }
             { showLessons 
@@ -75,6 +85,7 @@ const StudentOfTeacher = ({first_name, last_name, picture_url, id, students, use
                 </div>
             : null
             }
+            <button id={id} onClick={handleDeleteStudent} className='delete-button'>Delete User</button>
         </div>
     )
 }

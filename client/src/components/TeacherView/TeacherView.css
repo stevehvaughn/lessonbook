@@ -1,16 +1,10 @@
 .avatar-picture {
 	border-radius: 50%;
-	border: solid 1px;
+	border: solid 1px #eee;
 	object-fit: cover;
 	height: 10vh;
 	background-color: gray;
 }
-
-/* .small {
-	height: 5vh;
-	display: inline-block;
-	vertical-align: baseline;
-} */
 
 .single-student-container {
 	display: block;

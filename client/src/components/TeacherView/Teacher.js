@@ -82,6 +82,7 @@ const Teacher = () => {
                         students = {students}
                         first_name = {student.first_name}
                         last_name = {student.last_name}
+                        combined_name = {student.combined_name}
                         picture_url = {student.picture_url}
                         username = {student.username}
                         lesson_time = {student.lesson_time}
