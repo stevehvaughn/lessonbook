@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { useState, useEffect } from 'react'
 import { getUsersStudents } from '../../redux/actions/userActions'
+import Avatar from 'react-avatar';
 import SelectedLesson from './SelectedLesson'
 import StudentOfTeacher from './StudentOfTeacher'
 import './TeacherView.css'
@@ -71,7 +72,7 @@ const Teacher = () => {
     return (
         <div>
             <div className='teacher-header'>
-                <img className="avatar-picture" src={teacher.picture_url} alt="teacher_picture"></img>
+                { teacher.picture_url ? <img className="avatar-picture" src={teacher.picture_url} alt="teacher_picture"></img> : <Avatar round='50%' name={combined_name} /> }
                 <h1 id="teacher-header-text">  Professor {teacher.last_name}'s Studio</h1>
             </div>
             <h2 className='page-header'>Current Students</h2>
