@@ -57,10 +57,12 @@ const StudentOfTeacher = ({first_name, last_name, combined_name, picture_url, id
     }
     sortLessons(lessons)
 
-    function handleDeleteStudent(e) {
-        const clickedUserId = parseInt(e.target.id)
-        const arrayIndexOfStudent = students.findIndex(student => student.id === clickedUserId)
-        dispatch(deleteStudent(clickedUserId, arrayIndexOfStudent))
+    function handleAreYouSureDelete(e) {
+        if (window.confirm("Are you sure you want to delete this student?")) {
+            const clickedUserId = parseInt(e.target.id)
+            const arrayIndexOfStudent = students.findIndex(student => student.id === clickedUserId)
+            dispatch(deleteStudent(clickedUserId, arrayIndexOfStudent))
+        }
     }
 
     return (
@@ -78,14 +80,14 @@ const StudentOfTeacher = ({first_name, last_name, combined_name, picture_url, id
                             <li id={lesson.id} key={lesson.id} className='single-lesson' onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} onClick={renderFullLesson}>
                                 {getDayOfWeek(lesson.date), getFormattedDate(lesson.date)}
                             </li>
-                            {isHovering === true && lesson.id === parseInt(hoveringID) ? <p className='hover-text'>{lesson.objective} - {lesson.assignment}</p> : null}
+                            {isHovering === true && lesson.id === parseInt(hoveringID) ? <p className='hover-text'>{lesson.objective}<br/><br/>{lesson.assignment}</p> : null}
                             </>
                         )})}
                     </ul>
                 </div>
             : null
             }
-            <button id={id} onClick={handleDeleteStudent} className='delete-button'>Delete User</button>
+            <button id={id} onClick={(e) => {handleAreYouSureDelete(e)}} className='delete-button'>Delete Student</button>
         </div>
     )
 }

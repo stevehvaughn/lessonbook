@@ -58,10 +58,10 @@ const CreateLesson = () => {
                                 )})}
                         </select>
                     </div>
-                    <div className='form-div'>
+                    {/* <div className='form-div'>
                         <label htmlFor='earned_grade'>Grade:</label>
                         <input placeholder='Please enter a whole number, optional' type='number' name='earned_grade' value={newLessonData.earned_grade} onChange={handleNewLessonData}></input>
-                    </div>
+                    </div> */}
                 <button className='form-button' type='submit'>Complete Lesson</button><br/>
             </form><br/>
             { success ? <h3 className='success'>{success}</h3> : <LoginErrors />}
