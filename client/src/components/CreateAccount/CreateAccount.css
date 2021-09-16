@@ -11,6 +11,7 @@
 .form-div {
 	display: grid;
 	grid-template-columns: 1fr 3fr;
+	align-items: center;
 }
 
 .sub-div {
@@ -23,7 +24,7 @@
 .form-button {
 	padding: 10px;
 	border: none;
-	background-color: #3f51b5;
+	background-color: rgba(73, 63, 252, 1);
 	color: #fff;
 	border-radius: 10px;
 	width: 33.3%;
@@ -32,7 +33,7 @@
 }
 
 .form-button:hover {
-	background-color: grey;
+	background-color: rgb(110, 94, 254);
 }
 
 .large-input {
@@ -93,8 +94,7 @@ label {
 	textarea,
 	select {
 		width: 75%;
-		padding: 5px;
-		margin: 1.5em 0;
+		margin: 1em 0;
 	}
 
 	label {
@@ -103,7 +103,7 @@ label {
 	}
 
 	.form-div {
-		grid-template-columns: 1fr 1.5fr;
+		grid-template-columns: 1fr 3fr;
 	}
 
 	.sub-div {

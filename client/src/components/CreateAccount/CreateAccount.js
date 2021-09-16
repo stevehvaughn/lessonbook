@@ -112,16 +112,16 @@ const CreateAccount = () => {
                         <input type='text' name='last_name' value={newUserData.last_name} onChange={handleNewUserData}></input>
                     </div>
                     <div className='form-div'>
-                        <label htmlFor='email'>Email:</label>
-                        <input type='text' name='email' value={newUserData.email} onChange={handleNewUserData}></input>
-                    </div>
-                    <div className='form-div'>
                         <label htmlFor='username'>Username:</label>
                         <input type='text' name='username' value={newUserData.username} onChange={handleNewUserData}></input>
                     </div>
                     <div className='form-div'>
                         <label htmlFor='password'>Password:</label>
                         <input type='password' name='password' value={newUserData.password} onChange={handleNewUserData}></input>
+                    </div>
+                    <div className='form-div'>
+                        <label htmlFor='email'>Email:</label>
+                        <input type='text' name='email' value={newUserData.email} onChange={handleNewUserData}></input>
                     </div>
                     <div id='upload-pic-div' className='form-div'>
                         <label id='upload-label' htmlFor='picture_url'>Upload Profile Picture:</label>
@@ -137,7 +137,7 @@ const CreateAccount = () => {
                         <option value="true">Teacher</option>
                         <option value="">Student</option>
                     </select>
-                </div><br/>
+                </div>
                 { isTeacher 
                 ?   null
                 :   <>
