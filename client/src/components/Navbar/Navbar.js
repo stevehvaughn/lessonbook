@@ -122,7 +122,7 @@ const Navbar = () => {
     return (
         <nav className="NavbarItems">
             <Link className='navbar-logo-big' to="/">
-                <h1 className='navbar-logo'><span><img src={logo} alt='lessonbook-favicon'></img></span> lessonbook</h1>
+                <h1 className='navbar-logo'><span><img id='favicon' src={logo} alt='lessonbook-favicon'></img></span> lessonbook</h1>
             </Link>
             <div className='menu-icon' onClick={handleClick}>
                 <i className={active ? "fas fa-times" : "fas fa-bars"}></i>
