@@ -12,9 +12,15 @@ span {
 	color: initial;
 }
 
+img {
+	width: 100%;
+	height: auto;
+	max-width: 60px;
+}
+
 .navbar-logo {
 	color: #fff;
-	font-size: 2.5vh;
+	font-size: 2em;
 	justify-self: start;
 	margin-left: 20px;
 	cursor: pointer;
@@ -108,7 +114,7 @@ span {
 		font-size: 2em;
 		top: 0;
 		left: 0;
-		transform: translate(0%, 40%);
+		transform: translate(0%, 10%);
 		white-space: nowrap;
 	}
 

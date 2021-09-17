@@ -3,8 +3,8 @@ import { toggleActive, toggleOff } from "../../redux/actions/navbarActions"
 import { logoutAction } from "../../redux/actions/userActions"
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { BsBook } from 'react-icons/bs'
 import './Navbar.css'
+import logo from './lessonbook_favicon.png'
 
 const Navbar = () => {    
     const dispatch = useDispatch()
@@ -122,7 +122,7 @@ const Navbar = () => {
     return (
         <nav className="NavbarItems">
             <Link className='navbar-logo-big' to="/">
-                <h1 className='navbar-logo'>lessonbook <span style={{ color: "#fff"}}><BsBook /></span></h1>
+                <h1 className='navbar-logo'><span><img src={logo} alt='lessonbook-favicon'></img></span> lessonbook</h1>
             </Link>
             <div className='menu-icon' onClick={handleClick}>
                 <i className={active ? "fas fa-times" : "fas fa-bars"}></i>
