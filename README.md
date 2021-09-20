@@ -65,7 +65,7 @@ Features of Lessonbook:
 ## Getting Started
 
 This project is deployed on Heroku and can be visited at https://lessonbook.herokuapp.com <br/>
-To get a local copy up and running follow these steps.
+To get a local copy up and running follow these steps in the root level of the directory.
 
 ### Prerequisites
 
@@ -94,6 +94,14 @@ To get a local copy up and running follow these steps.
    ```sh
    npm install --prefix client
    ```
+5. Start the rails server 
+    ```sh
+    rails s
+    ```
+6. Start the node server
+    ```sh
+    npm start --prefix client 
+    ```
 
 <!-- USAGE EXAMPLES -->
 ## Usage
@@ -136,7 +144,7 @@ Are you a private lesson teacher who also codes? Do you want to contribute to th
 <!-- CONTACT -->
 ## Contact
 
-Steve Vaughn - [Twitter](https://twitter.com/stevehvaughn) | [LinkedIn](https://www.linkedin.com/in/stevehvaughn/) | [Email](steve.h.vaughn@gmail.com) | [Medium](https://stevehvaughn.medium.com/)
+Steve Vaughn - [GitHub](https://github.com/stevehvaughn) | [LinkedIn](https://www.linkedin.com/in/stevehvaughn/) | [Medium](https://stevehvaughn.medium.com/) | [Twitter](https://twitter.com/stevehvaughn) | [Email](steve.h.vaughn@gmail.com) 
 
 Project Link: [https://github.com/stevehvaughn/lessonbook](https://github.com/stevehvaughn/lessonbook)
 
