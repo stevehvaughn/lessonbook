@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
+  <a href="https://lessonbook.herokuapp.com">
     <img src="https://user-images.githubusercontent.com/82396393/134022320-2611bf4f-5e09-4086-bba2-41cfa0c2dccf.png" alt="Logo" width="80" height="80">
   </a>
 
@@ -40,7 +40,6 @@
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
@@ -51,95 +50,77 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Projuct Name Screen Shot][product-screenshot]](https://example.com)
+![lessonbook-screenshot](https://user-images.githubusercontent.com/82396393/134024872-161e9557-9c64-4506-8592-679519c24d1b.png)
 
-There are many great README templates available on GitHub, however, I didn't find one that really suit my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
+The idea for this app came to me while teaching lessons to my students at the University of Northern Colorado. I always keep a notebook to track my students' progress in lessons including their assignments, grades, and repertoire and I thought that having a way to manage my studio digitally would be incredibly useful. Lessonbook is a digital tool do just that, and it can be used by both teachers and students!
 
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should implement DRY principles to the rest of your life :smile:
-
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
-
-A list of commonly used resources that I find helpful are listed in the acknowledgements.
+Features of Lessonbook:
+* For teachers, having a single space dedicated to tracking your students lessons is incredibly time saving! 
+* For students, you can keep a practice log to make sure you are working on the materials each day for your next lesson! 
+* Students and Teachers can both leave comments on an individual lesson to ask questions, clarify an assignment, or leave an encouraging note! 
 
 ### Built With
 
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 * [Ruby on Rails](https://rubyonrails.org/)
 * [React.js](https://reactjs.org/)
 * [Redux](https://redux.js.org/)
 
-
-
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
+This project is deployed on Heroku and can be visited at https://lessonbook.herokuapp.com
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
 * npm
   ```sh
   npm install npm@latest -g
   ```
+* ruby<br/>
+  You might already have ruby installed, run this to check 
+  ```sh
+  ruby -v
+  ```
+  If you don't have ruby, check this [documentation](https://www.ruby-lang.org/en/documentation/installation/#rvm) for how to install it
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/stevehvaughn/lessonbook.git
    ```
-3. Install NPM packages
+2. Install Gemfiles
    ```sh
-   npm install
+   bundle install
    ```
-4. Enter your API in `config.js`
-   ```JS
-   const API_KEY = 'ENTER YOUR API';
+4. Install NPM packages
+   ```sh
+   npm install --prefix client
    ```
-
-
-
+  
 <!-- USAGE EXAMPLES -->
 ## Usage
 
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-
-
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a list of proposed features (and known issues).
+In the coming weeks I plan on implementing the student-side features of this application. I am aiming for a launch date of January 2022 to use the App with the students in my current studio. 
 
 
 
 <!-- CONTRIBUTING -->
 ## Contributing
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+Are you a private lesson teacher who also codes? Do you want to contribute to this open-source project with your own ideas? Are you interested in this app and want to make it even better? Any contributions you make are **greatly appreciated**.
 
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
-
-
-
-<!-- LICENSE -->
-## License
-
-Distributed under the MIT License. See `LICENSE` for more information.
-
-
 
 <!-- CONTACT -->
 ## Contact
