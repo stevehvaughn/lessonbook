@@ -78,7 +78,7 @@ const CreateAccount = () => {
         setErrors([])
         if (selectedFile.type === undefined) {
             setErrors(['Please select a file to upload'])
-        } else if  (selectedFile.type !== 'image/jpeg' ) {
+        } else if  (selectedFile.type !== 'image/jpeg') {
             setErrors([`Please upload a .jpeg image, this file type is: ${selectedFile.type}`])
         } else {
             const uploadTask = storage.ref(`/images/${selectedFile.name}`).put(selectedFile)
