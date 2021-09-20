@@ -9,7 +9,8 @@
     An App for private music teachers and studio professors to manage their students' progress. 
     <br />
     <br />
-    <a href="https://www.loom.com/share/662b7191451e411b9694e2e89d1c2301">View Demo</a>
+    <a href="https://www.loom.com/share/662b7191451e411b9694e2e89d1c2301">View Demo</a> |
+    <a href="https://lessonbook.herokuapp.com">Visit Lessonbook</a>
   </p>
 </p>
 
@@ -63,8 +64,8 @@ Features of Lessonbook:
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This project is deployed on Heroku and can be visited at https://lessonbook.herokuapp.com
-To get a local copy up and running follow these simple example steps.
+This project is deployed on Heroku and can be visited at https://lessonbook.herokuapp.com <br/>
+To get a local copy up and running follow these steps.
 
 ### Prerequisites
 
