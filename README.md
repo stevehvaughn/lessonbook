@@ -1,16 +1,9 @@
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![LinkedIn][linkedin-shield]][https://www.linkedin.com/in/stevehvaughn/]
-
-<br />
 <p align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="https://user-images.githubusercontent.com/82396393/134020717-165069ca-a878-43c1-bddd-5bfe9070e5b3.png" alt="Logo" width="80" height="80">
+    <img src="https://user-images.githubusercontent.com/82396393/134022320-2611bf4f-5e09-4086-bba2-41cfa0c2dccf.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">lessonbook</h3>
+  <h3 align="center">Lessonbook</h3>
 
   <p align="center">
     An App for private music teachers and studio professors to manage their students' progress. 
@@ -58,7 +51,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Projuct Name Screen Shot][product-screenshot]](https://example.com)
 
 There are many great README templates available on GitHub, however, I didn't find one that really suit my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
 
