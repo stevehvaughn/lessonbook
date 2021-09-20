@@ -2,17 +2,12 @@
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
-
-![lessonbook_logo](https://user-images.githubusercontent.com/82396393/134020717-165069ca-a878-43c1-bddd-5bfe9070e5b3.png)
-
+[![LinkedIn][linkedin-shield]][https://www.linkedin.com/in/stevehvaughn/]
 
 <br />
 <p align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="https://user-images.githubusercontent.com/82396393/134020717-165069ca-a878-43c1-bddd-5bfe9070e5b3.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">lessonbook</h3>
