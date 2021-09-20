@@ -9,12 +9,7 @@
     An App for private music teachers and studio professors to manage their students' progress. 
     <br />
     <br />
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+    <a href="https://www.loom.com/share/662b7191451e411b9694e2e89d1c2301">View Demo</a>
   </p>
 </p>
 
@@ -98,18 +93,33 @@ To get a local copy up and running follow these simple example steps.
    ```sh
    npm install --prefix client
    ```
-  
+
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+### Creating an Account
+When you click the "Sign Up" button in the Navbar you are presented with a sign up form. When prompted with the "Student or Teacher" question if you choose Teacher the website will create your account as a teacher. If you choose Student you are promped with more questions so the database knows who your teacher is and additional information only necessary for students. 
+<p align='center'>
+  <img width='75%' src="https://user-images.githubusercontent.com/82396393/134033251-590e2d79-c13a-4fa9-8b1e-be9419bdcc35.gif"/>
+</p>
+
+### Teachers
+#### Creating Lessons
+While you are in a student with a lesson, click the "New Lesson" button. Here you can fill out information such as repertoire, objective, and assignment for the student to view. Be sure to select your student in the drop down menu before creating the lesson as well.  
+<p align='center'>
+  <img width='75%' src="https://user-images.githubusercontent.com/82396393/134034271-537b8541-af36-4fad-beec-5a8c5bcc803a.gif"/>
+</p>
+
+#### Viewing Lessons
+You can view lessons that you have created for your students by clicking the "Show Lessons" button. Hover over a lesson to see information about it, and click it to see a detailed view of that lesson.
+<p align='center'>
+  <img width='75%' src="https://user-images.githubusercontent.com/82396393/134031966-d53584a9-2469-4fc5-821b-f0e1ec61afb8.gif"/>
+</p>
 
 <!-- ROADMAP -->
 ## Roadmap
 
 In the coming weeks I plan on implementing the student-side features of this application. I am aiming for a launch date of January 2022 to use the App with the students in my current studio. 
-
-
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -125,42 +135,11 @@ Are you a private lesson teacher who also codes? Do you want to contribute to th
 <!-- CONTACT -->
 ## Contact
 
-Steve Vaughn - [@stevehvaughn](https://twitter.com/stevehvaughn) | [LinkedIn](https://www.linkedin.com/in/stevehvaughn/) | [Email](steve.h.vaughn@gmail.com)
+Steve Vaughn - [Twitter](https://twitter.com/stevehvaughn) | [LinkedIn](https://www.linkedin.com/in/stevehvaughn/) | [Email](steve.h.vaughn@gmail.com) | [Medium](https://stevehvaughn.medium.com/)
 
 Project Link: [https://github.com/stevehvaughn/lessonbook](https://github.com/stevehvaughn/lessonbook)
 
-
-
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Img Shields](https://shields.io)
-* [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Pages](https://pages.github.com)
-* [Animate.css](https://daneden.github.io/animate.css)
-* [Loaders.css](https://connoratherton.com/loaders)
-* [Slick Carousel](https://kenwheeler.github.io/slick)
-* [Smooth Scroll](https://github.com/cferdinandi/smooth-scroll)
-* [Sticky Kit](http://leafo.net/sticky-kit)
-* [JVectorMap](http://jvectormap.com)
-* [Font Awesome](https://fontawesome.com)
+* [Free Vector Musical Notes Pattern](https://www.freevector.com/musical-notes-pattern#)
 
-
-
-
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
-[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
-[forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
-[stars-url]: https://github.com/othneildrew/Best-README-Template/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
-[issues-url]: https://github.com/othneildrew/Best-README-Template/issues
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
-[product-screenshot]: images/screenshot.png
