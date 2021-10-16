@@ -3,6 +3,7 @@ import { getFormattedDate } from '../TeacherView/StudentOfTeacher';
 import { useState } from 'react';
 import { useSelector } from 'react-redux'
 import Avatar from 'react-avatar';
+import SelectedLesson from '../TeacherView/SelectedLesson';
 
 const Student = () => {
     const student = useSelector(state => state.user)
@@ -10,6 +11,7 @@ const Student = () => {
     const [hoveringID, setHoveringID] = useState("")
     const [pageX, setPageX] = useState("")
     const [pageY, setPageY] = useState("")
+    const [selectedLesson, setSelectedLesson] = useState(null)
 
     function handleMouseOver(e) {
         setHoveringID(e.target.id)
@@ -37,6 +39,23 @@ const Student = () => {
 
     const upcomingLessons = student.lessons.filter(lesson => new Date(lesson.date) > new Date())
     const priorLessons = student.lessons.filter(lesson => new Date(lesson.date) < new Date())
+
+    function renderFullLesson(e) {
+        const clickedLesson = parseInt(e.target.id)
+        { selectedLesson && clickedLesson === selectedLesson.id ? setSelectedLesson(null) 
+        : 
+        fetch(`/lessons/${clickedLesson}`)
+        .then(resp => resp.json())
+        .then(data => {
+            setSelectedLesson(data)
+            window.scroll({
+                top: document.body.offsetHeight,
+                left: 0, 
+                behavior: 'smooth',
+                })
+            });
+        }
+    }
     
     return (
         <div>
@@ -50,7 +69,7 @@ const Student = () => {
                 <ul className='students-lessons-list'>
                     {upcomingLessons.map(lesson => { return (
                         <>
-                        <li id={lesson.id} key={lesson.id} className='single-lesson' onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+                        <li id={lesson.id} key={lesson.id} className='single-lesson' onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} onClick={renderFullLesson}>
                             {getDayOfWeek(lesson.date), getFormattedDate(lesson.date)}
                         </li>
                         {isHovering === true && lesson.id === parseInt(hoveringID) ? <p className='hover-text' style={{ left: parseInt(pageX), top: parseInt(pageY) + 10 }}>{lesson.objective}<br/><br/>{lesson.assignment}</p> : null}
@@ -63,7 +82,7 @@ const Student = () => {
                 <ul className='students-lessons-list'>
                     {priorLessons.map(lesson => { return (
                         <>
-                        <li id={lesson.id} key={lesson.id} className='single-lesson' onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+                        <li id={lesson.id} key={lesson.id} className='single-lesson' onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} onClick={renderFullLesson}>
                             {getDayOfWeek(lesson.date), getFormattedDate(lesson.date)}
                         </li>
                         {isHovering === true && lesson.id === parseInt(hoveringID) ? <p className='hover-text' style={{ left: parseInt(pageX), top: parseInt(pageY) + 10 }}>{lesson.objective}<br/><br/>{lesson.assignment}</p> : null}
@@ -71,6 +90,13 @@ const Student = () => {
                     )})}
                 </ul>
             </div>
+        {selectedLesson ?
+        <SelectedLesson 
+            selectedLesson = {selectedLesson}
+            setSelectedLesson = {setSelectedLesson}
+        />
+        : null 
+        }       
         </div>
     )
 }
