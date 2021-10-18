@@ -54,8 +54,9 @@ const Teacher = () => {
     
     function renderFullLesson(e) {
         const clickedLesson = parseInt(e.target.id)
-        { selectedLesson && clickedLesson === selectedLesson.id ? setSelectedLesson(null) 
-        : 
+        if (selectedLesson && clickedLesson === selectedLesson.id) {
+            setSelectedLesson(null)
+        } else {
         fetch(`/lessons/${clickedLesson}`)
         .then(resp => resp.json())
         .then(data => {
