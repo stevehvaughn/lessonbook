@@ -71,7 +71,7 @@ const Student = () => {
                     {upcomingLessons.map(lesson => { return (
                         <>
                         <li id={lesson.id} key={lesson.id} className='single-lesson' onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} onClick={renderFullLesson}>
-                            {getDayOfWeek(lesson.date)}, {getFormattedDate(lesson.date)}
+                            {getDayOfWeek(lesson.date)} - {getFormattedDate(lesson.date)}
                         </li>
                         {isHovering === true && lesson.id === parseInt(hoveringID) ? <p className='hover-text' style={{ left: parseInt(pageX), top: parseInt(pageY) + 10 }}>{lesson.objective}<br/><br/>{lesson.assignment}</p> : null}
                         </>
@@ -84,7 +84,7 @@ const Student = () => {
                     {priorLessons.map(lesson => { return (
                         <>
                         <li id={lesson.id} key={lesson.id} className='single-lesson' onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} onClick={renderFullLesson}>
-                            {getDayOfWeek(lesson.date)}, {getFormattedDate(lesson.date)}
+                            {getDayOfWeek(lesson.date)} - {getFormattedDate(lesson.date)}
                         </li>
                         {isHovering === true && lesson.id === parseInt(hoveringID) ? <p className='hover-text' style={{ left: parseInt(pageX), top: parseInt(pageY) + 10 }}>{lesson.objective}<br/><br/>{lesson.assignment}</p> : null}
                         </>
